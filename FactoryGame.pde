@@ -5,7 +5,7 @@ float tileSize = 64;
 Controller c;
 
 ArrayList<Tile> tiles;
-
+ArrayList<Item> items;
 void setup() {
 
   //Define variables that dont reset after each session here
