@@ -53,23 +53,24 @@ void keyReleased() {
   } else if (whichKey.equals(" ")) {
     keys[4] = false;
   }
+
 }
 
 void mousePressed() {
-  keys[5] = true;
+    keys[5] = true;
 }
 
 void mouseReleased() {
-  keys[5] = false;
+    keys[5] = false;
 }
 
 int Scroll = 0; // 0=up, 1=right, 2=down, 3=left
 void mouseWheel(MouseEvent scroll) {
-  Scroll += scroll.getCount();
-  if (Scroll>3) {
-    Scroll =0;
-  } else if (Scroll<0) {
-    Scroll = 3;
-  }
-  println(Scroll);
+    Scroll += scroll.getCount();
+    if (Scroll>3) {
+        Scroll =0;
+    } else if (Scroll<0) {
+        Scroll = 3;
+    }
+    println(Scroll);
 }
