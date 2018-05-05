@@ -60,6 +60,12 @@ class Tile {
             tempx += -16*SCREENMULTIPLIER;
         }
         rectMode(CENTER);
-        rect((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER, (-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+        rect((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER, (-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);    
+    }
+    void output(int type, int data){
+      create_Item(x,y,type,data);
+    }
+    void output(int type){
+      output(type,0);
     }
 }

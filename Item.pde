@@ -1,6 +1,6 @@
 void create_Item(float x, float y, int type, int data) {
-  int itemx = int(x/tileSize);
-  int itemy = int(y/tileSize);
+  float itemx = x*tileSize+tileSize/2;
+  float itemy = y*tileSize+tileSize/2;
 
   Item currItem = new Item(itemx, itemy, type, data);
   items.add(currItem);
@@ -11,12 +11,12 @@ void create_Item(float x, float y, int type) {
 }
 
 class Item{
- int x;
- int y;
+ float x;
+ float y;
  int type;
  int data;
  
- Item(int x, int y, int type, int data) {
+ Item(float x, float y, int type, int data) {
     this.x = x;
     this.y = y;
     this.type=type;
