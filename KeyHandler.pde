@@ -1,4 +1,4 @@
-boolean[] keys = new boolean[7];
+boolean[] keys = new boolean[8];
 
 void keyPressed() {
   String whichKey = "default";
@@ -10,6 +10,9 @@ void keyPressed() {
 
   if (whichKey.equals("e") || whichKey.equals("i")) {
     keys[6] = true;
+  }
+  if (whichKey.equals("r")) {
+    keys[7] = true;
   }
   if (whichKey.equals("w") || whichKey.equals("38")) {
     keys[0] = true;
@@ -33,6 +36,15 @@ void keyReleased() {
   }
   if (whichKey.equals("e") || whichKey.equals("i")) {
     keys[6] = false;
+  }
+  if (whichKey.equals("r")) {
+    keys[7] = false;
+    Scroll += 1;
+    if (Scroll>3) {
+      Scroll =0;
+    } else if (Scroll<0) {
+      Scroll = 3;
+    }
   }
   if (whichKey.equals("w") || whichKey.equals("38")) {
     keys[0] = false;
