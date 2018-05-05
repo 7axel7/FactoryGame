@@ -31,9 +31,6 @@ void keyReleased() {
     } else {
         whichKey = str(key);
     }
-    if (whichKey.equals("e") || whichKey.equals("i")) {
-        keys[6] = false;
-    }
     if (whichKey.equals("w") || whichKey.equals("38")) {
         keys[0] = false;
     } else if (whichKey.equals("s") || whichKey.equals("40")) {
