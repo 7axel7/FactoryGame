@@ -31,7 +31,7 @@ void draw() {
         currtile.display();
     }
     if (keys[5]) {
-        create_Tile(mouseX/SCREENMULTIPLIER, mouseY/SCREENMULTIPLIER, selectedtile, 0);
+        create_Tile(mouseX/SCREENMULTIPLIER, mouseY/SCREENMULTIPLIER, selectedtile, Scroll);
     }
     if (c.inventoryOpen) {
         c.displayInventory();
@@ -50,4 +50,12 @@ void draw() {
     rect(0, 0, (width/2*(1/SCREENMULTIPLIER)+400)*SCREENMULTIPLIER, (height/2*(1/SCREENMULTIPLIER)-400)*SCREENMULTIPLIER);
     rect(width, height, (width/2*(1/SCREENMULTIPLIER)-400)*SCREENMULTIPLIER, (height/2*(1/SCREENMULTIPLIER)+400)*SCREENMULTIPLIER);
     rect(width, height, (width/2*(1/SCREENMULTIPLIER)+400)*SCREENMULTIPLIER, (height/2*(1/SCREENMULTIPLIER)-400)*SCREENMULTIPLIER);
+    background(100, 100, 100);
+    for (int i = tiles.size()-1; i >= 0; i--) {
+        Tile currtile = tiles.get(i);
+        currtile.display();
+    }
+    if (c.inventoryOpen) {
+        c.displayInventory();
+    }
 }
