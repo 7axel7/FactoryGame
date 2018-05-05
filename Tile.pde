@@ -32,5 +32,22 @@ class Tile {
       fill(0, 255, 0);
     }
     rect((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+    fill(255, 0, 0);
+    int tempx = 0;
+    int tempy = 0;
+    if(direction==0){
+    tempy += -16*SCREENMULTIPLIER;
+    }
+    if(direction==1){
+    tempx += 16*SCREENMULTIPLIER;
+    }
+    if(direction==2){
+    tempy += 16*SCREENMULTIPLIER;
+    }
+    if(direction==3){
+    tempx += -16*SCREENMULTIPLIER;
+    }
+    rectMode(CENTER);
+    rect((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER, (-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
   }
 }

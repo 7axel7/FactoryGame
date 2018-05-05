@@ -28,10 +28,10 @@ void draw() {
     currtile.display();
   }
   if (keys[5]) {
-    create_Tile(mouseX*SCREENMULTIPLIER, mouseY*SCREENMULTIPLIER, 0, 0);
+    create_Tile(mouseX*SCREENMULTIPLIER, mouseY*SCREENMULTIPLIER, 0, Scroll);
   }
   if (keys[0]) {
-    create_Tile(mouseX*SCREENMULTIPLIER, mouseY*SCREENMULTIPLIER, 1, 0);
+    create_Tile(mouseX*SCREENMULTIPLIER, mouseY*SCREENMULTIPLIER, 1, Scroll);
   }
   if (c.inventoryOpen) {
     c.displayInventory();
