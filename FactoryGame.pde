@@ -2,6 +2,7 @@ float SCREENMULTIPLIER; //Used for zoom
 float camx = 0;
 float camy = 0;
 float tileSize = 64;
+Controller c;
 
 ArrayList<Tile> tiles;
 
@@ -16,8 +17,8 @@ void setup() {
 void startGame() {
   //Define variables that reset after each session here
   tiles = new ArrayList<Tile>();
-  SCREENMULTIPLIER = 1/(768/max(float(width), float(height))); //800 by 800 is the default, zoom from there
-  create_Tile(64, 64, 0, 0);
+  SCREENMULTIPLIER = 1/(768/max(float(width), float(height))); //768 by 768 is the default, zoom from theres
+  c = new Controller();
 }
 
 void draw() {
@@ -27,9 +28,12 @@ void draw() {
     currtile.display();
   }
   if (keys[5]) {
-    create_Tile(mouseX, mouseY, 0, 0);
+    create_Tile(mouseX*SCREENMULTIPLIER, mouseY*SCREENMULTIPLIER, 0, 0);
   }
   if (keys[0]) {
-    create_Tile(mouseX, mouseY, 1, 0);
+    create_Tile(mouseX*SCREENMULTIPLIER, mouseY*SCREENMULTIPLIER, 1, 0);
+  }
+  if (c.inventoryOpen) {
+    c.displayInventory();
   }
 }
