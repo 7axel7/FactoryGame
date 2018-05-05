@@ -72,5 +72,5 @@ void mouseWheel(MouseEvent scroll) {
     } else if (Scroll<0) {
         Scroll = 3;
     }
-    println(Scroll);
+    //println(Scroll);
 }
