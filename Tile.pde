@@ -1,30 +1,36 @@
-void create_Tile(float x, float y, int type, float data) {
-    int tilex = int(x/tileSize);
-    int tiley = int(y/tileSize);
+void create_Tile(float x, float y, int type, int direction, int data) {
+  int tilex = int(x/tileSize);
+  int tiley = int(y/tileSize);
 
-    Tile currtile = new Tile(tilex, tiley, type, data);
-    tiles.add(currtile);
+  Tile currtile = new Tile(tilex, tiley, type, direction, data);
+  tiles.add(currtile);
 }
 
-void create_Tile(float x, float y, int type) {
-    create_Tile(x,y,type,0);
+void create_Tile(float x, float y, int type, int direction) {
+  create_Tile(x, y, type, direction, 0);
 }
 
 class Tile {
-    float x;
-    float y;
-    int type;
-    float data;
+  int x;
+  int y;
+  int type;
+  int direction;
+  int data;
 
-    Tile(int x, int y, int type, float data) {
-        this.x = x;
-        this.y = y;
-        this.type=type;
-        this.data=data;
+  Tile(int x, int y, int type, int direction, int data) {
+    this.x = x;
+    this.y = y;
+    this.type=type;
+    this.direction=direction;
+    this.data=data;
+  }
+  void display() {
+    rectMode(CORNER);
+    if (type == 0) {
+      fill(0, 0, 0);
+    } else if (type == 1) {
+      fill(0, 255, 0);
     }
-    void display() {
-        rectMode(CORNER);
-        fill(0, 0, 0);
-        rect((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
-    }
+    rect((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+  }
 }
