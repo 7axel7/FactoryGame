@@ -11,8 +11,13 @@ void keyPressed() {
   if (whichKey.equals("e") || whichKey.equals("i")) {
     keys[6] = true;
   }
-  if (whichKey.equals("r")) {
-    keys[7] = true;
+  if (whichKey.equals("r")) { //R for Rotate
+    Scroll += 1;
+    if (Scroll>3) {
+      Scroll =0;
+    } else if (Scroll<0) {
+      Scroll = 3;
+    }
   }
   if (whichKey.equals("w") || whichKey.equals("38")) {
     keys[0] = true;
@@ -37,15 +42,6 @@ void keyReleased() {
   if (whichKey.equals("e") || whichKey.equals("i")) {
     keys[6] = false;
   }
-  if (whichKey.equals("r")) {
-    keys[7] = false;
-    Scroll += 1;
-    if (Scroll>3) {
-      Scroll =0;
-    } else if (Scroll<0) {
-      Scroll = 3;
-    }
-  }
   if (whichKey.equals("w") || whichKey.equals("38")) {
     keys[0] = false;
   } else if (whichKey.equals("s") || whichKey.equals("40")) {
@@ -67,7 +63,7 @@ void mouseReleased() {
   keys[5] = false;
 }
 
-int Scroll = 0;
+int Scroll = 0; // 0=up, 1=right, 2=down, 3=left
 void mouseWheel(MouseEvent scroll) {
   Scroll += scroll.getCount();
   if (Scroll>3) {
