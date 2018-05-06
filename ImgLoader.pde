@@ -10,6 +10,18 @@ PImage seCurveBody;
 PImage seCurveCage;
 PImage swCurveBody;
 PImage swCurveCage;
+PImage Arrow;
+PImage BBrine;
+PImage nInserter1;
+PImage nInserter2;
+PImage eInserter1;
+PImage eInserter2;
+PImage sInserter1;
+PImage sInserter2;
+PImage wInserter1;
+PImage wInserter2;
+
+
 
 void imgLoad() {
   hPipeBody = loadImage("Horizontal Pipe Body.png");
@@ -24,4 +36,14 @@ void imgLoad() {
   seCurveCage = loadImage("SE Curve Pipe Cage.png");
   swCurveBody = loadImage("SW Curve Pipe Body.png");
   swCurveCage = loadImage("SW Curve Pipe Cage.png");
+  Arrow = loadImage("Arrow.png");
+  BBrine = loadImage("Brackish_Brine.png");
+  nInserter1 = loadImage("N Item Inserter F1.png");
+  nInserter2 = loadImage("N Item Inserter F2.png");
+  eInserter1 = loadImage("E Item Inserter F1.png");
+  eInserter2 = loadImage("E Item Inserter F2.png");
+  sInserter1 = loadImage("S Item Inserter F1.png");
+  sInserter2 = loadImage("S Item Inserter F2.png");
+  wInserter1 = loadImage("W Item Inserter F1.png");
+  wInserter2 = loadImage("W Item Inserter F2.png");
 }

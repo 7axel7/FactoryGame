@@ -12,12 +12,9 @@ void create_Item(int x, int y, int type) {
 }
 
 class Item {
-<<<<<<< HEAD
 
     int waitMove = 30;
-=======
-    int waitMove = 31;
->>>>>>> origin/master
+
     int x;
     int y;
     int type;
