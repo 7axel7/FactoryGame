@@ -105,8 +105,8 @@ void imgLoad() {
   goal2 = loadImage("Ojective Dump2.png");
   tripDetector = loadImage("Tripped Detector.png");
   untripDetector = loadImage("Untripped Detector.png");
-  crafterBody1 = loadImage("Crafter Body F1");
-  crafterBody2 = loadImage("Crafter Body F2");
+  crafterBody1 = loadImage("Crafter Body F1.png");
+  crafterBody2 = loadImage("Crafter Body F2.png");
   crafterCage = loadImage("Crafter Cage.png");
   logo = loadImage("Logo.png");
   bGround = loadImage("BG.png");
