@@ -224,7 +224,6 @@ void draw() {
             text("Level Complete!", width/2, height*2/10);
             textSize(32*SCREENMULTIPLIER);
             text("Click to Continue", width/2, height*3/10);
-            println("a");
             if (keys[5]) {
                 keys[5] = false;
                 levelComplete = false;
@@ -240,9 +239,7 @@ void draw() {
                 
             }
         }
-        if(!levelComplete){
-        println("b");
-        }
+        
 
         fill(255, 200, 0);
         textSize(32*SCREENMULTIPLIER);
