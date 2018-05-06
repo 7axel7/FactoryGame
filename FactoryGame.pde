@@ -3,6 +3,7 @@ float camx = 0;
 float camy = 0;
 float tileSize = 64;
 int selectedTile;
+boolean update = true;
 Controller c;
 
 
@@ -12,7 +13,7 @@ ArrayList<Item> items;
 void setup() {
 
     //Define variables that dont reset after each session here
-    size(800, 800, P2D);
+    size(768, 768, P2D);
     imgLoad();
     
     //size(768, 768, P2D);
@@ -76,12 +77,6 @@ void draw() {
         } else {
             c.inventoryOpen = true;
         }
-
-        for (int i = items.size()-1; i >= 0; i--) {
-            Item currItem = items.get(i);
-            currItem.push();
-            currItem.display();
-        }
     }
     rectMode(CORNERS);
     fill(20, 20, 20);
@@ -94,6 +89,8 @@ void draw() {
         Tile currTile = tiles.get(i);
         currTile.display();
     }
+    update = false;
+    
     for (int i = items.size()-1; i >= 0; i--) {
         Item currItem = items.get(i);
         currItem.push();
