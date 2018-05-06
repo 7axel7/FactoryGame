@@ -2,12 +2,12 @@ class Controller {
   boolean inventoryOpen = true;
   int[] inventory = new int[6];
   Controller() {
-    this.inventory[0] = 80;
-    this.inventory[1] = 20;
-    this.inventory[2] = 12;
-    this.inventory[3] = 13;
-    this.inventory[4] = 14;
-    this.inventory[5] = 25;
+    this.inventory[0] = 200;
+    this.inventory[1] = 200;
+    this.inventory[2] = 200;
+    this.inventory[3] = 200;
+    this.inventory[4] = 200;
+    this.inventory[5] = 200;
   }
   void setInventory(int[] inv){
     for (int i = 0; i <= min(inventory.length-1,inv.length-1); i++) {

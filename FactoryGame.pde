@@ -128,7 +128,7 @@ void startGame() {
     SCREENMULTIPLIER = 1/(768/min(float(width), float(height))); //768 by 768 is the default, zoom from theres
     c = new Controller();
     selectedTile = 0;
-    setLevel(1);
+    
 }
 
 void draw() {
@@ -209,15 +209,23 @@ void draw() {
             }
         }
     } else {
-    fill(230, 200, 0);
+    fill(255, 200, 0);
     image(logo, 1, 1);
     textSize(64*SCREENMULTIPLIER);
     textAlign(CENTER);
     text("START Game", width/2, height*3/5);
+    text("Sandbox Mode", width/2, height*4/5);
     if (keys[5]) {
         if (mouseX<width*2/3&&mouseX>width*1/3) {
-            if (mouseY<width*2/3&&mouseY>width*1/3) {
+            if (mouseY<width*7/10&&mouseY>width*5/10) {
+                setLevel(1);
                 titleScreen = 0;
+            }
+        }
+        if (mouseX<width*2/3&&mouseX>width*1/3) {
+            if (mouseY<width*9/10&&mouseY>width*7/10) {
+              setLevel(0);  
+              titleScreen = 0;
             }
         }
     }
