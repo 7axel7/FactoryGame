@@ -22,6 +22,7 @@ PImage crossBody;
 PImage crossCage;
 PImage arrow;
 PImage brackishBrine;
+PImage doggo;
 PImage drainPlug;
 PImage eyeEngine;
 PImage eyeForest;
@@ -40,6 +41,15 @@ PImage sInserter3;
 PImage wInserter1;
 PImage wInserter2;
 PImage wInserter3;
+PImage pit1;
+PImage pit2;
+PImage goal1;
+PImage goal2;
+PImage tripDetector;
+PImage untripDetector;
+PImage crafterBody1;
+PImage crafterBody2;
+PImage crafterCage;
 PImage logo;
 PImage bGround;
 
@@ -70,6 +80,7 @@ void imgLoad() {
   crossCage = loadImage("Cross Pipe Cage.png");
   arrow = loadImage("Arrow.png");
   brackishBrine = loadImage("Brackish_Brine.png");
+  doggo = loadImage("Doggo.png");
   drainPlug = loadImage("Drain_Plug.png");
   eyeEngine = loadImage("Eye_Engine.png");
   eyeForest = loadImage("Eye_Of_The_Forest.png");
@@ -88,6 +99,15 @@ void imgLoad() {
   wInserter1 = loadImage("W Item Inserter F1.png");
   wInserter2 = loadImage("W Item Inserter F2.png");
   wInserter3 = loadImage("W Item Inserter F3.png");
+  pit1 = loadImage("Deathpit1.png");
+  pit2 = loadImage("Deathpit2.png");
+  goal1 = loadImage("Ojective Dump1.png");
+  goal2 = loadImage("Ojective Dump2.png");
+  tripDetector = loadImage("Tripped Detector.png");
+  untripDetector = loadImage("Untripped Detector.png");
+  crafterBody1 = loadImage("Crafter Body F1");
+  crafterBody2 = loadImage("Crafter Body F2");
+  crafterCage = loadImage("Crafter Cage.png");
   logo = loadImage("Logo.png");
   bGround = loadImage("BG.png");
 }

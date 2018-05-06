@@ -315,10 +315,10 @@ class Tile {
     void craft() {
         if (slot3 == false) {
             boolean fail = true;
-            for (int i = recipies.size()-1; i >= 0; i--) {
+            for (int i = recipes.size()-1; i >= 0; i--) {
                 int[] temp = new int[0];
                 temp = craftCheck();
-                if (recipies.get(i)[0] == temp[0] && recipies.get(i)[1] == temp[1]) {
+                if (recipes.get(i)[0] == temp[0] && recipes.get(i)[1] == temp[1]) {
                     output(i%10, -1);
                     fail = false;
                 }
