@@ -6,7 +6,7 @@ int selectedTile;
 boolean update = true;
 Controller c;
 int t = 0;
-int titleScreen = 1;
+int titleScreen = 0;
 
 ArrayList<Tile> tiles;
 ArrayList<Item> items;
@@ -73,42 +73,40 @@ void draw() {
                 }
             }
         }
-    }
-    if (c.inventoryOpen) {
-        c.displayInventory();
-    }
-    if (keys[6]) {
-        keys[6] = false;
-        if (c.inventoryOpen) {
-            c.inventoryOpen = false;
-        } else {
-            c.inventoryOpen = true;
+        if (keys[6]) {
+            keys[6] = false;
+            if (c.inventoryOpen) {
+                c.inventoryOpen = false;
+            } else {
+                c.inventoryOpen = true;
+            }
         }
+        rectMode(CORNERS);
+        fill(20, 20, 20);
+        rect(0, 0, (width/2*(1/SCREENMULTIPLIER)-400)*SCREENMULTIPLIER, (height/2*(1/SCREENMULTIPLIER)+400)*SCREENMULTIPLIER);
+        rect(0, 0, (width/2*(1/SCREENMULTIPLIER)+400)*SCREENMULTIPLIER, (height/2*(1/SCREENMULTIPLIER)-400)*SCREENMULTIPLIER);
+        rect(width, height, (width/2*(1/SCREENMULTIPLIER)-400)*SCREENMULTIPLIER, (height/2*(1/SCREENMULTIPLIER)+400)*SCREENMULTIPLIER);
+        rect(width, height, (width/2*(1/SCREENMULTIPLIER)+400)*SCREENMULTIPLIER, (height/2*(1/SCREENMULTIPLIER)-400)*SCREENMULTIPLIER);
+        for (int i = tiles.size()-1; i >= 0; i--) {
+            Tile currTile = tiles.get(i);
+            currTile.display();
+        }
+        update = false;
+        if (c.inventoryOpen) {
+            c.displayInventory();
+        }
+        for (int i = items.size()-1; i >= 0; i--) {
+            Item currItem = items.get(i);
+            currItem.push();
+            currItem.display();
+            if (currItem.deleteMe == true) {
+                items.remove(i);
+            }
+        }
+    } else {
+        fill(0, 102, 153);
+        textSize(64*SCREENMULTIPLIER);
+        textAlign(CENTER);
+        text("Factory Game", width/2, height*2/5);
     }
-    rectMode(CORNERS);
-    fill(20, 20, 20);
-    rect(0, 0, (width/2*(1/SCREENMULTIPLIER)-400)*SCREENMULTIPLIER, (height/2*(1/SCREENMULTIPLIER)+400)*SCREENMULTIPLIER);
-    rect(0, 0, (width/2*(1/SCREENMULTIPLIER)+400)*SCREENMULTIPLIER, (height/2*(1/SCREENMULTIPLIER)-400)*SCREENMULTIPLIER);
-    rect(width, height, (width/2*(1/SCREENMULTIPLIER)-400)*SCREENMULTIPLIER, (height/2*(1/SCREENMULTIPLIER)+400)*SCREENMULTIPLIER);
-    rect(width, height, (width/2*(1/SCREENMULTIPLIER)+400)*SCREENMULTIPLIER, (height/2*(1/SCREENMULTIPLIER)-400)*SCREENMULTIPLIER);
-    background(100, 100, 100);
-    for (int i = tiles.size()-1; i >= 0; i--) {
-        Tile currTile = tiles.get(i);
-        currTile.display();
-    }
-    update = false;
-
-    for (int i = items.size()-1; i >= 0; i--) {
-        Item currItem = items.get(i);
-        currItem.push();
-        currItem.display();
-    }
-    if (c.inventoryOpen) {
-        c.displayInventory();
-    }
-
-    fill(0, 102, 153);
-    textSize(64*SCREENMULTIPLIER);
-    textAlign(CENTER);
-    text("Factory Game", width/2, height*2/5);
 }
