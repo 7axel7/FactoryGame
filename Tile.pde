@@ -12,8 +12,8 @@ void create_Tile(float x, float y, int type, int direction, int data) {
     }
   }
   if (fail == false) {
-    Tile currtile = new Tile(tilex, tiley, type, direction, data);
-    tiles.add(currtile);
+    Tile currTile = new Tile(tilex, tiley, type, direction, data);
+    tiles.add(currTile);
   }
 }
 
