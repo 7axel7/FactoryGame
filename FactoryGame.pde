@@ -1,3 +1,5 @@
+import processing.sound.*;
+SoundFile song;
 float SCREENMULTIPLIER; //Used for zoom
 float camx = 0;
 float camy = 0;
@@ -14,6 +16,8 @@ ArrayList<int[]> recipes;
 
 
 void setup() {
+  song = new SoundFile(this, "IndustrialSwing.wav");
+  song.loop();
   recipes = new ArrayList<int[]>();
   int[] recipe = new int[2]; 
   recipe[0] = 1;
