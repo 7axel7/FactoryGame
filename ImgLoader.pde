@@ -41,6 +41,7 @@ PImage wInserter1;
 PImage wInserter2;
 PImage wInserter3;
 PImage logo;
+PImage bGround;
 
 
 
@@ -88,5 +89,5 @@ void imgLoad() {
   wInserter2 = loadImage("W Item Inserter F2.png");
   wInserter3 = loadImage("W Item Inserter F3.png");
   logo = loadImage("Logo.png");
-  background = loadImage("BG.png");
+  bGround = loadImage("BG.png");
 }

@@ -102,6 +102,7 @@ void draw() {
         }
     } else {
         fill(0, 102, 153);
+        image(logo, 1,1);
         textSize(64*SCREENMULTIPLIER);
         textAlign(CENTER);
         text("Factory Game", width/2, height*2/5);

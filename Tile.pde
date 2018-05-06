@@ -272,6 +272,10 @@ class Tile {
                 }
             }
         }
-        //println(holding);
+        if(holding[1] < holding[0]){
+        int temp = holding[0];
+        holding[0] = holding[1];
+        holding[1] = temp;
+        }
     }
 }
