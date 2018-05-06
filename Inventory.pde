@@ -17,7 +17,7 @@ class Controller {
 
   void displayInventory() {
     rectMode(CENTER);
-    fill(256, 256, 256);
+    fill(256, 256, 240);
     rect((-camx+width/2), (-camy+height/2), (610)*SCREENMULTIPLIER, (610)*SCREENMULTIPLIER);
     for (int i = 0; i <= inventory.length-1; i++) {
       fill(111, 256, 256);
