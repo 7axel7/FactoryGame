@@ -34,34 +34,7 @@ void startGame() {
 void draw() {
   t++;
   background(100, 100, 100);
-  for (int i = tiles.size()-1; i >= 0; i--) {
-    Tile currTile = tiles.get(i);
-    currTile.display();
-    if (currTile.type==1) {
-      if (currTile.slot==false) {
-        currTile.output(0);
-        currTile.slot=true;
-      }
-    }
-    if (currTile.type==3 && currTile.slot==true) {
-      currTile.data = 1;
-    }
-    if (currTile.type==4) {
-      currTile.data = 0;
-      for (int j = tiles.size()-1; j >= 0; j--) {
-        Tile detecttile = tiles.get(j);
-        if (detecttile.type ==3) {
-          if (detecttile.x <=currTile.x+2 && detecttile.x >=currTile.x-2 ) {
-            if (detecttile.y <=currTile.y+2 && detecttile.y >=currTile.y-2 ) {
-              if (detecttile.data == 1) {
-                currTile.data = 1;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+
   if (keys[5]) {
     if (c.inventoryOpen) {
       c.click();
@@ -103,6 +76,37 @@ void draw() {
       items.remove(i);
     }
   }
+
+  for (int i = tiles.size()-1; i >= 0; i--) {
+    Tile currTile = tiles.get(i);
+    currTile.display();
+    if (currTile.type==1) {
+      if (currTile.slot==false) {
+        currTile.output(0);
+        currTile.slot=true;
+      }
+    }
+    if (currTile.type==3 && currTile.slot==true) {
+      currTile.data = 1;
+    }
+    if (currTile.type==4) {
+      currTile.data = 0;
+      for (int j = tiles.size()-1; j >= 0; j--) {
+        Tile detecttile = tiles.get(j);
+        if (detecttile.type ==3) {
+          if (detecttile.x <=currTile.x+2 && detecttile.x >=currTile.x-2 ) {
+            if (detecttile.y <=currTile.y+2 && detecttile.y >=currTile.y-2 ) {
+              if (detecttile.data == 1) {
+                currTile.data = 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
   if (c.inventoryOpen) {
     c.displayInventory();
   }
