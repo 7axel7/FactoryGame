@@ -63,8 +63,9 @@ class Tile {
         rect((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER, (-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);    
     }
     void output(int type, int data){
-      create_Item(x,y,type,data);
+      create_Item(this.x, this.y, type, data);
     }
+ 
     void output(int type){
       output(type,0);
     }
