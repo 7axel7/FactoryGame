@@ -18,10 +18,26 @@ void setLevel (int level) {
                 create_Tile(i*tileSize, j*tileSize, 0, j%4, 0);
             }
         }
+        tutorialText = "You can use the Right Mouse Button\n to remove tiles and place them in your inventory.";
+        create_Tile(5*tileSize, 0*tileSize, 1, 2, 0);
+        create_Tile(5*tileSize, 8*tileSize, 2, 0, 0);
 
         c.inventory[0] = 0;
         success[0] = 5;
-    }
+    }else if (level==2) {
+        for (int i = 0; i <= 4; i++) {
+            for (int j = 0; j <= 4; j++) {
+                create_Tile(i*tileSize, j*tileSize, 0, j%4, 0);
+            }
+        }
+        tutorialText = "Tiles craft garbo barbs.";
+        create_Tile(5*tileSize, 0*tileSize, 1, 2, 0);
+        create_Tile(5*tileSize, 1*tileSize, 5, 2, 0);
+        create_Tile(5*tileSize, 8*tileSize, 2, 0, 0);
+
+        c.inventory[0] = 10;
+        success[0] = 5;
+        
     currLevel = level;
 }
 void outputIncrease(int type) {
@@ -36,5 +52,7 @@ void updateSuccess() {
     }
     if (levelComplete == false) {
         levelComplete = true;
+        success[0] = 0;
+
     }
 }
