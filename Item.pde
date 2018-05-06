@@ -14,6 +14,7 @@ void create_Item(int x, int y, int type) {
 class Item {
     boolean deleteMe = false;
     int currSlot = 1;
+    int futureSlot = 1;
     int waitMove = 30;
     int x;
     int y;
@@ -31,6 +32,10 @@ class Item {
         this.y = y;
         this.type=type;
         this.data=data;
+        if (this.data == -1) {
+            this.currSlot = 3;
+            this.data = 0;
+        }
     }
     void push() {
         if (tileMovingTo == null) {
@@ -46,7 +51,9 @@ class Item {
             }
             if (tileIn!=null) {
                 if (tileIn.type == 5) {
-                    tileIn = null;
+                    if (this.currSlot != 3) {
+                        tileIn = null;
+                    }
                 }
             }
             if (tileIn != null) {
@@ -79,12 +86,16 @@ class Item {
                         tileout.slot = true;
                         this.tileIn = tileIn;
                         tileMovingTo = tileout;
+                        if (currSlot == 3) {
+                            tileIn.slot3 = false;
+                        }
+                        futureSlot = 1;
                     } else if (tileout.type==5) {
                         if (tileout.slot2 == false) {
                             tileout.slot2 = true;
                             this.tileIn = tileIn;
                             tileMovingTo = tileout;
-                            currSlot = 2;
+                            futureSlot = 2;
                         }
                     }
                 }
@@ -94,8 +105,6 @@ class Item {
                 this.x = tileMovingTo.x;
                 this.y = tileMovingTo.y;
                 this.tileIn.slot = false;
-                if (currSlot == 2) {
-                }
                 if (tileMovingTo.type == 2) {
                     deleteMe = true;
                     tileMovingTo.slot = false;
@@ -104,6 +113,7 @@ class Item {
                 waitMove = 31;
                 animationx = 0;
                 animationy = 0;
+                currSlot = futureSlot;
             } else {
                 if (tileIn.direction==0) {
                     animationy-=2*tileSize/64;
@@ -122,15 +132,53 @@ class Item {
         }
     }
 
-  void display() {
-    imageMode(CENTER);
-    rectMode(CENTER);
-    if (this.type ==0) {
-      image(brackishBrine, (-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
-    } else if (this.type == 1) {
-      fill(120, 250, 80);
-      noStroke();
-      rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+    void display() {
+        imageMode(CENTER);
+        rectMode(CENTER);
+        if (this.type ==0) {
+            image(brackishBrine, (-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+        } else if (this.type == 1) {
+            fill(120, 250, 80);
+            noStroke();
+            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+        } else if (this.type == 2) {
+            fill(250, 150, 80);
+            noStroke();
+            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+        } else if (this.type == 3) {
+            fill(250, 80, 150);
+            noStroke();
+            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+        } else if (this.type == 4) {
+            fill(250, 120, 120);
+            noStroke();
+            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+        } else if (this.type == 5) {
+            fill(120, 200, 120);
+            noStroke();
+            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+        } else if (this.type == 6) {
+            fill(120, 0, 120);
+            noStroke();
+            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+        } else if (this.type == 7) {
+            fill(0, 120, 120);
+            noStroke();
+            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+        }
+         else if (this.type == 8) {
+            fill(120, 120, 0);
+            noStroke();
+            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+        } else if (this.type == 9) {
+            fill(120, 0, 250);
+            noStroke();
+            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+        } else if (this.type == 10) {
+            fill(250, 120, 250);
+            noStroke();
+            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+        }
+        
     }
-}
 }

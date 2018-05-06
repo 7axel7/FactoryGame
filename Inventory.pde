@@ -2,15 +2,15 @@ class Controller {
   boolean inventoryOpen = true;
   int[] inventory = new int[60];
   Controller() {
-    this.inventory[0] = 50;
-    this.inventory[1] = 5;
-    this.inventory[2] = 2;
-    this.inventory[3] = 3;
-    this.inventory[4] = 4;
-    this.inventory[5] = 5;
-    this.inventory[8] = 6;
-    this.inventory[13] = 7;
-    this.inventory[26] = 8;
+    this.inventory[0] = 80;
+    this.inventory[1] = 20;
+    this.inventory[2] = 12;
+    this.inventory[3] = 13;
+    this.inventory[4] = 14;
+    this.inventory[5] = 25;
+    this.inventory[8] = 16;
+    this.inventory[13] = 17;
+    this.inventory[26] = 18;
   }
 
   void displayInventory() {
@@ -20,7 +20,6 @@ class Controller {
     for (int i = 0; i <= inventory.length-1; i++) {
       fill(111, 256, 256);
       if (inventory[i] > 0) {
-        //println(selectedTile,i);
         if (selectedTile == i) {
           fill(256, 111, 256);
         }
