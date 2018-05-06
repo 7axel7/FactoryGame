@@ -16,7 +16,7 @@ ArrayList<int[]> recipes;
 PFont courier;
 
 void setup() {
-    courier = createFont("Courier New Bold",64);
+    courier = createFont("Courier New Bold", 64);
     textFont(courier);
     song = new SoundFile(this, "IndustrialSwing.wav");
     song.loop();
@@ -225,6 +225,9 @@ void draw() {
             textSize(32*SCREENMULTIPLIER);
             text("Click to Continue", width/2, height*3/10);
             if (keys[5]) {
+                for (int i = 0; i <= outputs.length-1; i++) {
+                    outputs[i] = 0;
+                }
                 keys[5] = false;
                 levelComplete = false;
                 for (int i = tiles.size()-1; i >= 0; i--) {
@@ -235,7 +238,6 @@ void draw() {
                     currItem.deleteMe = true;
                 }
                 setLevel(currLevel+1);
-                
             }
         }
 

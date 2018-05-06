@@ -23,6 +23,7 @@ void setLevel (int level) {
         create_Tile(5*tileSize, 8*tileSize, 2, 0, 0);
 
         c.inventory[0] = 0;
+        
         success[0] = 5;
     } else if (level==3) {
         for (int i = 0; i <= 11; i++) {
@@ -31,7 +32,8 @@ void setLevel (int level) {
         tutorialText = "Crafter Tiles combine 2 items \n to create one new item.";
         create_Tile(5*tileSize, 0*tileSize, 1, 2, 0);
         create_Tile(5*tileSize, 1*tileSize, 5, 2, 0);
-        create_Tile(5*tileSize, 8*tileSize, 2, 0, 0);
+        create_Tile(5*tileSize, 8*tileSize, 2, 2, 0);
+        create_Tile(4*tileSize, 8*tileSize, 2, 3, 0);
 
         c.inventory[0] = 10;
         success[0] = 0;
@@ -53,7 +55,7 @@ void setLevel (int level) {
         success[0] = 0;
         success[1] = 0;
         success[2] = 5;
-    }else if (level==5) {
+    } else if (level==5) {
         for (int i = 0; i <= 11; i++) {
             create_Tile(i*tileSize, 0*tileSize, 1, 0);
         }
@@ -66,9 +68,9 @@ void setLevel (int level) {
         create_Tile(5*tileSize, 7*tileSize, 0, 3);
         create_Tile(4*tileSize, 7*tileSize, 5, 0);
         create_Tile(4*tileSize, 6*tileSize, 0, 0);
-        
+
         tutorialText = "In Russia, garbo barbos craft you.";
-        
+
         create_Tile(5*tileSize, 0*tileSize, 5, 0, 0);
         create_Tile(5*tileSize, 1*tileSize, 5, 0, 0);
         create_Tile(5*tileSize, 8*tileSize, 5, 0, 0);
@@ -87,7 +89,7 @@ void setLevel (int level) {
         success[1] = 0;
         success[2] = 0;
         success[3] = 5;
-    }else if (level==6) {
+    } else if (level==6) {
         for (int i = 0; i <= 11; i++) {
             create_Tile(11-i*tileSize, i*tileSize, 4, 0);
         }
@@ -100,9 +102,9 @@ void setLevel (int level) {
         create_Tile(5*tileSize, 7*tileSize, 0, 3);
         create_Tile(4*tileSize, 7*tileSize, 5, 0);
         create_Tile(4*tileSize, 6*tileSize, 0, 0);
-        
+
         tutorialText = "In Russia, garbo barbos craft you.";
-        
+
         create_Tile(5*tileSize, 0*tileSize, 5, 0, 0);
         create_Tile(5*tileSize, 1*tileSize, 5, 0, 0);
         create_Tile(5*tileSize, 8*tileSize, 5, 0, 0);
@@ -135,13 +137,12 @@ void updateSuccess() {
 
     for (int i = 0; i <= success.length-1; i++) {
         if (outputs[i] != success[i]) {
+            println(i, outputs[i]);
+
             return;
         }
     }
     if (levelComplete == false) {
         levelComplete = true;
-        for (int i = 0; i <= outputs.length-1; i++) {
-            outputs[i] = 0;
-        }
     }
 }
