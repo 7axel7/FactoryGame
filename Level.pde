@@ -18,7 +18,7 @@ void setLevel (int level) {
                 create_Tile(i*tileSize, j*tileSize, 0, j%4, 0);
             }
         }
-        tutorialText = "You can use the Right Mouse Button \n to remove tiles and place them \n in your inventory. \n Press 'R' or use the scroll wheel to rotate your tile.";
+        tutorialText = "You can use the Right Mouse Button \n to remove tiles and place them \n in your inventory. \n Press 'R' or use the scroll wheel \n to rotate your tile.";
         create_Tile(5*tileSize, 0*tileSize, 1, 2, 0);
         create_Tile(5*tileSize, 8*tileSize, 2, 0, 0);
 
@@ -28,7 +28,7 @@ void setLevel (int level) {
         for (int i = 0; i <= 11; i++) {
             create_Tile(0*tileSize, i*tileSize, 1, 1, 0);
         }
-        tutorialText = "Tiles craft garbo barbs.";
+        tutorialText = "Crafter Tiles combine 2 items \n to create one new item.";
         create_Tile(5*tileSize, 0*tileSize, 1, 2, 0);
         create_Tile(5*tileSize, 1*tileSize, 5, 2, 0);
         create_Tile(5*tileSize, 8*tileSize, 2, 0, 0);
