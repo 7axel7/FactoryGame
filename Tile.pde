@@ -22,11 +22,15 @@ void create_Tile(float x, float y, int type, int direction) {
 }
 
 class Tile {
-  int x;
-  int y;
-  int type;
-  int direction;
-  int data;
+
+    int x;
+    int y;
+    int type;
+    int direction;
+    int data;
+    boolean slot;
+    boolean slot2;
+
 
   Tile(int x, int y, int type, int direction, int data) {
     this.x = x;

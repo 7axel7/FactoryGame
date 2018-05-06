@@ -69,6 +69,11 @@ void draw() {
       c.inventoryOpen = false;
     } else {
       c.inventoryOpen = true;
+
+    for (int i = items.size()-1; i >= 0; i--) {
+        Item currItem = items.get(i);
+        currItem.push();
+        currItem.display();
     }
   }
   rectMode(CORNERS);
