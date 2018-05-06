@@ -5,6 +5,7 @@ float tileSize = 64;
 int selectedTile;
 Controller c;
 
+
 ArrayList<Tile> tiles;
 ArrayList<Item> items;
 
@@ -12,6 +13,8 @@ void setup() {
 
     //Define variables that dont reset after each session here
     size(800, 800, P2D);
+    imgLoad();
+    
     //size(768, 768, P2D);
     frameRate(60);
     startGame();

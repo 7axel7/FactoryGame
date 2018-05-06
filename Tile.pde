@@ -40,13 +40,13 @@ class Tile {
     this.data=data;
   }
   void display() {
-    rectMode(CORNER);
+    imageMode(CORNER);
     if (type == 0) {
       fill(0, 0, 0);
     } else if (type == 1) {
       fill(0, 255, 0);
     }
-    rect((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+    image(hPipeBody,(-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
     fill(255, 0, 0);
     int tempx = 0;
     int tempy = 0;
@@ -62,8 +62,8 @@ class Tile {
     if (direction==3) {
       tempx += -16*SCREENMULTIPLIER;
     }
-    rectMode(CENTER);
-    rect((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER, (-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+    imageMode(CENTER);
+    image(hPipeBody,(-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER, (-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
   }
   void output(int type, int data) {
     create_Item(this.x, this.y, type, data);
