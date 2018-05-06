@@ -12,12 +12,14 @@ void create_Item(int x, int y, int type) {
 }
 
 class Item {
-    int waitMove = 30;
+    int waitMove = 31;
     int x;
     int y;
     int type;
     int data;
     int direction;
+    int animationx;
+    int animationy;
     Tile tileMovingTo = null;
     Tile tileIn;
 
@@ -75,20 +77,33 @@ class Item {
             }
         } else {
             if (waitMove < 0) {
-                println(tileMovingTo.x,tileMovingTo.y);
                 this.x = tileMovingTo.x;
                 this.y = tileMovingTo.y;
                 this.tileIn.slot = false;
                 tileMovingTo = null;
-                waitMove = 30;
+                waitMove = 31;
+                animationx=0;
+                animationy=0;
             } else {
-            waitMove -= 1;
+                if (tileIn.direction==0) {
+                    animationy-=2;
+                }
+                if (tileIn.direction==1) {
+                    animationx+=2;
+                }
+                if (tileIn.direction==2) {
+                    animationy+=2;
+                }
+                if (tileIn.direction==3) {
+                    animationx-=2;
+                }
+                waitMove -= 1;
             }
         }
     }
     void display() {
         rectMode(CENTER);
         fill(123, 0, 123);
-        rect((-camx+x*tileSize+tileSize/2)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2)*SCREENMULTIPLIER, (32)*SCREENMULTIPLIER, (32)*SCREENMULTIPLIER);
+        rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (32)*SCREENMULTIPLIER, (32)*SCREENMULTIPLIER);
     }
 }
