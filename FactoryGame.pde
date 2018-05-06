@@ -16,6 +16,7 @@ ArrayList<int[]> recipes;
 PFont courier;
 
 void setup() {
+
   courier = createFont("Courier New Bold", 64);
   textFont(courier);
   song = new SoundFile(this, "IndustrialSwing.wav");
@@ -116,6 +117,7 @@ void setup() {
   recipe = new int[2]; 
   recipe[0] = 1;
   recipe[1] = 4;
+
 
   //Define variables that dont reset after each session here
   size(768, 768, P2D);
@@ -231,6 +233,9 @@ void draw() {
       if (keys[5]) {
         keys[5] = false;
         levelComplete = false;
+        for (int i = 0; i <= outputs.length-1; i++){
+          outputs[i] = 0;
+        }
         for (int i = tiles.size()-1; i >= 0; i--) {
           tiles.remove(i);
         }
@@ -239,7 +244,6 @@ void draw() {
           currItem.deleteMe = true;
         }
         setLevel(currLevel+1);
-        levelComplete = false;
       }
     }
 
