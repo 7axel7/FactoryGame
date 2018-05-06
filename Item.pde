@@ -105,8 +105,8 @@ class Item {
 
 
     void display() {
-        rectMode(CENTER);
-        fill(123, 0, 123);
-        rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (32)*SCREENMULTIPLIER, (32)*SCREENMULTIPLIER);
+        imageMode(CENTER);
+        
+        image(bBrine,(-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (64)*SCREENMULTIPLIER, (64)*SCREENMULTIPLIER);
     }
 }

@@ -46,11 +46,6 @@ class Tile {
             updateConnections();
         }
         imageMode(CORNER);
-        if (type == 0) {
-            fill(0, 0, 0);
-        } else if (type == 1) {
-            fill(0, 255, 0);
-        }
         // 0=up, 1=right, 2=down, 3=left
         //rect((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
         if (type==0) {
@@ -130,6 +125,7 @@ class Tile {
         }
         image(arrow, 0, 0, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
         popMatrix();
+        
     }
     void output(int type, int data) {
         create_Item(this.x, this.y, type, data);
