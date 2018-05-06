@@ -14,7 +14,7 @@ void setup() {
 
     //Define variables that dont reset after each session here
     size(768, 768, P2D);
-    noSmooth();
+    ((PGraphicsOpenGL)g).textureSampling(3);
     imgLoad();
     
     //size(768, 768, P2D);
