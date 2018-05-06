@@ -17,13 +17,13 @@ class Controller {
 
   void displayInventory() {
     rectMode(CENTER);
-    fill(256, 256, 240);
+    fill(256, 256, 200);
     rect((-camx+width/2), (-camy+height/2), (610)*SCREENMULTIPLIER, (610)*SCREENMULTIPLIER);
     for (int i = 0; i <= inventory.length-1; i++) {
-      fill(111, 256, 256);
+      fill(256, 240, 180);
       if (inventory[i] > 0) {
         if (selectedTile == i) {
-          fill(256, 111, 256);
+          fill(256, 240, 150);
         }
         rect((-camx+width/2)-(300-30)*SCREENMULTIPLIER+(i%10*60)*SCREENMULTIPLIER, (-camy+height/2)-(300-30)*SCREENMULTIPLIER+(int(i/10)*60)*SCREENMULTIPLIER, (40)*SCREENMULTIPLIER, (40)*SCREENMULTIPLIER);
         textAlign(CENTER);
