@@ -73,6 +73,6 @@ class Item {
     void display() {
         rectMode(CENTER);
         fill(123, 0, 123);
-        rect((-camx+x)*SCREENMULTIPLIER, (-camy+y)*SCREENMULTIPLIER, (32)*SCREENMULTIPLIER, (32)*SCREENMULTIPLIER);
+        rect((-camx+x*tileSize+tileSize/2)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2)*SCREENMULTIPLIER, (32)*SCREENMULTIPLIER, (32)*SCREENMULTIPLIER);
     }
 }
