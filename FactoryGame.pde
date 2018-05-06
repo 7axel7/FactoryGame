@@ -32,7 +32,10 @@ void draw() {
         Tile currtile = tiles.get(i);
         currtile.display();
         if (currtile.type==1) {
-            currtile.output(0);
+            if (currtile.slot==false) {
+                currtile.output(0);
+                currtile.slot=true;
+            }
         }
         if (currtile.type==2 && currtile.slot==true) {
             currtile.data = 1;
@@ -88,12 +91,12 @@ void draw() {
         Tile currTile = tiles.get(i);
         currTile.display();
     }
-    if (c.inventoryOpen) {
-        c.displayInventory();
-    }
     for (int i = items.size()-1; i >= 0; i--) {
         Item currItem = items.get(i);
         currItem.push();
         currItem.display();
+    }
+    if (c.inventoryOpen) {
+        c.displayInventory();
     }
 }
