@@ -3,7 +3,7 @@ void create_Item(int x, int y, int type, int data) {
     int itemy = y;
 
     Item currItem = new Item(itemx, itemy, type, data);
-    
+
     items.add(currItem);
 }
 
@@ -12,12 +12,15 @@ void create_Item(int x, int y, int type) {
 }
 
 class Item {
+    int waitMove = 30;
     int x;
     int y;
     int type;
     int data;
     int direction;
+    Tile tileMovingTo = null;
     Tile tileIn;
+
 
     Item(int x, int y, int type, int data) {
         this.x = x;
@@ -26,55 +29,66 @@ class Item {
         this.data=data;
     }
     void push() {
-        Tile tileIn = null;
-        for (int i = 0; i <= tiles.size()-1; i++) {
-            if (tiles.get(i).x == this.x) {
-                if (tiles.get(i).y == this.y) {
-                    if (tiles.get(i).y == this.y) {
-                        tileIn = tiles.get(i);
-                    }
-                }
-            }
-        }
-        if (tileIn != null) {
-            int enterx = x;
-            int entery = y;
-
-            if (tileIn.direction == 0) {
-                entery = y-1;
-            }
-            if (tileIn.direction == 1) {
-                enterx = x+1;
-            }
-            if (tileIn.direction == 2) {
-                entery = y+1;
-            }
-            if (tileIn.direction == 3) {
-                enterx = x-1;
-            }
-
-            Tile tileout = null;
+        if (tileMovingTo == null) {
+            Tile tileIn = null;
             for (int i = 0; i <= tiles.size()-1; i++) {
-                if (tiles.get(i).x == enterx) {
-                    if (tiles.get(i).y == entery) {
-                        tileout = tiles.get(i);
+                if (tiles.get(i).x == this.x) {
+                    if (tiles.get(i).y == this.y) {
+                        if (tiles.get(i).y == this.y) {
+                            tileIn = tiles.get(i);
+                        }
                     }
                 }
             }
-            if (tileout != null) {
-                if (tileout.slot == false) {
-                    tileout.slot = true;
-                    tileIn.slot = false;
-                    this.x = tileout.x;
-                    this.y = tileout.y;
+            if (tileIn != null) {
+                int enterx = x;
+                int entery = y;
+
+                if (tileIn.direction == 0) {
+                    entery = y-1;
                 }
+                if (tileIn.direction == 1) {
+                    enterx = x+1;
+                }
+                if (tileIn.direction == 2) {
+                    entery = y+1;
+                }
+                if (tileIn.direction == 3) {
+                    enterx = x-1;
+                }
+
+                Tile tileout = null;
+                for (int i = 0; i <= tiles.size()-1; i++) {
+                    if (tiles.get(i).x == enterx) {
+                        if (tiles.get(i).y == entery) {
+                            tileout = tiles.get(i);
+                        }
+                    }
+                }
+                if (tileout != null) {
+                    if (tileout.slot == false) {
+                        tileout.slot = true;
+                        this.tileIn = tileIn;
+                        tileMovingTo = tileout;
+                    }
+                }
+            }
+        } else {
+            if (waitMove < 0) {
+                println(tileMovingTo.x,tileMovingTo.y);
+                this.x = tileMovingTo.x;
+                this.y = tileMovingTo.y;
+                this.tileIn.slot = false;
+                tileMovingTo = null;
+                waitMove = 30;
+            } else {
+            waitMove -= 1;
             }
         }
     }
     void display() {
         rectMode(CENTER);
         fill(123, 0, 123);
-
         rect((-camx+x*tileSize+tileSize/2)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2)*SCREENMULTIPLIER, (32)*SCREENMULTIPLIER, (32)*SCREENMULTIPLIER);
     }
 }
