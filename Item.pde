@@ -107,6 +107,6 @@ class Item {
     void display() {
         imageMode(CENTER);
         
-        image(bBrine,(-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (64)*SCREENMULTIPLIER, (64)*SCREENMULTIPLIER);
+        image(bBrine,(-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
     }
 }

@@ -1,7 +1,7 @@
 float SCREENMULTIPLIER; //Used for zoom
 float camx = 0;
 float camy = 0;
-float tileSize = 32;
+float tileSize = 64;
 int selectedTile;
 boolean update = true;
 Controller c;
