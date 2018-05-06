@@ -1,4 +1,4 @@
-boolean[] keys = new boolean[8];
+boolean[] keys = new boolean[9];
 
 void keyPressed() {
   String whichKey = "default";
@@ -56,11 +56,19 @@ void keyReleased() {
 }
 
 void mousePressed() {
+  if (mouseButton == RIGHT){
+  keys[7] = true;
+  } else {
   keys[5] = true;
+  }
 }
 
 void mouseReleased() {
+  if (mouseButton == RIGHT){
+  keys[7] = false;
+  } else {
   keys[5] = false;
+  }
 }
 
 int Scroll = 0; // 0=up, 1=right, 2=down, 3=left

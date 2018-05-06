@@ -32,6 +32,7 @@ class Tile {
   int data;
   boolean slot;
   boolean slot2;
+
   boolean power;
 
 
@@ -185,6 +186,7 @@ class Tile {
 
 
     if (type==1 || type == 0) {
+
       imageMode(CENTER);
       pushMatrix();
       int tempx = 0;
