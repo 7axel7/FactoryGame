@@ -1,4 +1,4 @@
-void create_Tile(float x, float y, int type, int direction, int data) { // Type: 0 = Pipe, 1 = Inputter, 2 = Goal, 3 = Detector, 4 = Activator
+void create_Tile(float x, float y, int type, int direction, int data, boolean changeable) { // Type: 0 = Pipe, 1 = Inputter, 2 = Goal, 3 = Detector, 4 = Activator
 
     int tilex = int(x/tileSize);
     int tiley = int(y/tileSize);
@@ -14,13 +14,13 @@ void create_Tile(float x, float y, int type, int direction, int data) { // Type:
     if (fail == false) {
         update = true;
         c.inventory[selectedTile]-=1;
-        Tile currtile = new Tile(tilex, tiley, type, direction, data);
+        Tile currtile = new Tile(tilex, tiley, type, direction, data, changeable);
         tiles.add(currtile);
     }
 }
 
 void create_Tile(float x, float y, int type, int direction) {
-    create_Tile(x, y, type, direction, 0);
+    create_Tile(x, y, type, direction, 0, true);
 }
 
 class Tile {
@@ -33,16 +33,17 @@ class Tile {
     boolean slot;
     boolean slot2;
     boolean slot3;
-
+    boolean changeable;
     boolean power;
 
 
-    Tile(int x, int y, int type, int direction, int data) {
+    Tile(int x, int y, int type, int direction, int data, boolean changeable) {
         this.x = x;
         this.y = y;
         this.type=type;
         this.direction=direction;
         this.data=data;
+        this.changeable=changeable;
     }
     void display() {
         if (update == true) {
