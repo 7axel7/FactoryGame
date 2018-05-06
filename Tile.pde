@@ -72,4 +72,5 @@ class Tile {
     void output(int type){
       output(type,0);
     }
+    
 }

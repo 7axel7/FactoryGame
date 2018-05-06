@@ -31,6 +31,9 @@ void draw() {
     for (int i = tiles.size()-1; i >= 0; i--) {
         Tile currtile = tiles.get(i);
         currtile.display();
+        if(currtile.type==1){
+          currtile.output(0);
+        }
     }
     if (keys[5]) {
         if (c.inventoryOpen) {
