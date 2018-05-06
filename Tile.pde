@@ -50,9 +50,32 @@ class Tile {
         } else if (type == 1) {
             fill(0, 255, 0);
         }
-        if (connections[0] && connections[1] && connections[0] && connections[0]) {
-        }
-        if (connections[0] && connections[1] && connections[0] && connections[0]) {
+        // 0=up, 1=right, 2=down, 3=left
+        //rect((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+        if (type==0) {
+            if (connections[0] && connections[1] && connections[2] && connections[3]) {
+            } else if (connections[0] && connections[1] == false && connections[2] && connections[3] == false) {
+                image(vPipeBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                image(vPipeCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+            } else if (connections[0] && connections[1]&& connections[2] == false  && connections[3] == false) {
+                image(neCurveBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                image(neCurveCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+            } else if (connections[0] && connections[1]==false&& connections[2] == false  && connections[3]) {
+                image(nwCurveBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                image(nwCurveCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+            } else if (connections[0]==false && connections[1]&& connections[2]  && connections[3] == false) {
+                image(seCurveBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                image(seCurveCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+            } else if (connections[0] == false && connections[1] == false && connections[2]  && connections[3]) {
+                image(swCurveBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                image(swCurveCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+            } else if (connections[0]||connections[2]) {
+                image(vPipeBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                image(vPipeCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+            } else {
+                image(hPipeBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                image(hPipeCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+            }
         }
 
         fill(255, 0, 0);
@@ -84,30 +107,50 @@ class Tile {
         for (int i = 0; i <= tiles.size()-1; i++) {
             if (tiles.get(i).x == x) {
                 if (tiles.get(i).y == y-1) {
-                    connections[0] = true;
+                    if (tiles.get(i).direction == 2) {
+                        connections[0] = true;
+                    }
                 }
             }
         }
         for (int i = 0; i <= tiles.size()-1; i++) {
             if (tiles.get(i).x == x+1) {
                 if (tiles.get(i).y == y) {
-                    connections[1] = true;
+                    if (tiles.get(i).direction == 3) {
+                        connections[1] = true;
+                    }
                 }
             }
         }
         for (int i = 0; i <= tiles.size()-1; i++) {
             if (tiles.get(i).x == x) {
                 if (tiles.get(i).y == y+1) {
-                    connections[2] = true;
+                    if (tiles.get(i).direction == 0) {
+                        connections[2] = true;
+                    }
                 }
             }
         }
         for (int i = 0; i <= tiles.size()-1; i++) {
             if (tiles.get(i).x == x-1) {
                 if (tiles.get(i).y == y) {
-                    connections[3] = true;
+                    if (tiles.get(i).direction == 1) {
+                        connections[3] = true;
+                    }
                 }
             }
+        } 
+        if (this.direction == 0) {
+            connections[0] = true;
+        }
+        if (this.direction == 1) {
+            connections[1] = true;
+        }
+        if (this.direction == 2) {
+            connections[2] = true;
+        }
+        if (this.direction == 3) {
+            connections[3] = true;
         }
     }
 }
