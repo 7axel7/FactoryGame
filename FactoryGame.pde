@@ -2,11 +2,12 @@ float SCREENMULTIPLIER; //Used for zoom
 float camx = 0;
 float camy = 0;
 float tileSize = 64;
-int selectedtile;
+int selectedTile;
 Controller c;
 
 ArrayList<Tile> tiles;
 ArrayList<Item> items;
+
 void setup() {
 
     //Define variables that dont reset after each session here
@@ -19,9 +20,10 @@ void setup() {
 void startGame() {
     //Define variables that reset after each session here
     tiles = new ArrayList<Tile>();
+    items = new ArrayList<Item>();
     SCREENMULTIPLIER = 1/(768/min(float(width), float(height))); //768 by 768 is the default, zoom from theres
     c = new Controller();
-    selectedtile = 0;
+    selectedTile = 0;
 }
 
 void draw() {
@@ -29,9 +31,16 @@ void draw() {
     for (int i = tiles.size()-1; i >= 0; i--) {
         Tile currtile = tiles.get(i);
         currtile.display();
+        if(currtile.type==1){
+          currtile.output(0);
+        }
     }
     if (keys[5]) {
-        create_Tile(mouseX/SCREENMULTIPLIER, mouseY/SCREENMULTIPLIER, selectedtile, Scroll);
+        if (c.inventoryOpen) {
+            c.click();
+        } else {
+            create_Tile(mouseX/SCREENMULTIPLIER, mouseY/SCREENMULTIPLIER, selectedTile, Scroll);
+        }
     }
     if (c.inventoryOpen) {
         c.displayInventory();
@@ -52,10 +61,15 @@ void draw() {
     rect(width, height, (width/2*(1/SCREENMULTIPLIER)+400)*SCREENMULTIPLIER, (height/2*(1/SCREENMULTIPLIER)-400)*SCREENMULTIPLIER);
     background(100, 100, 100);
     for (int i = tiles.size()-1; i >= 0; i--) {
-        Tile currtile = tiles.get(i);
-        currtile.display();
+        Tile currTile = tiles.get(i);
+        currTile.display();
     }
     if (c.inventoryOpen) {
         c.displayInventory();
+    }
+    for (int i = items.size()-1; i >= 0; i--) {
+        Item currItem = items.get(i);
+        currItem.move();
+        currItem.display();
     }
 }
