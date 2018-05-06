@@ -83,7 +83,7 @@ void draw() {
         for (int i = tiles.size()-1; i >= 0; i--) {
             Tile currTile = tiles.get(i);
             currTile.display();
-
+            currTile.power = true;
             if (currTile.type==1) {
                 if (currTile.slot==false) {
                     currTile.output(1);

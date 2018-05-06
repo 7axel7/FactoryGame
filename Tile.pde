@@ -33,6 +33,8 @@ class Tile {
   boolean slot;
   boolean slot2;
 
+  boolean power;
+
 
   Tile(int x, int y, int type, int direction, int data) {
     this.x = x;
@@ -157,8 +159,34 @@ class Tile {
           image(wInserter2, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
         }
       }//direction == 3
+    } else if (type==3) {
+      rectMode(CENTER);
+      fill(255, 150, 80);
+      noStroke();
+      if (data==1) {
+        fill(190, 255, 80);
+      }
+      rect((-camx+x*tileSize+tileSize/2)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2)*SCREENMULTIPLIER, (tileSize/8)*SCREENMULTIPLIER, (tileSize/8)*SCREENMULTIPLIER);
+    } else if (type==4) {
+      rectMode(CENTER);
+      fill(255, 150, 80);
+      noStroke();
+      if (data==1) {
+        for (int i = tiles.size()-1; i >= 0; i--) {
+          Tile currTile = tiles.get(i); 
+          if (currTile.x <=this.x+1 && currTile.x >=this.x-1 ) {
+            if (currTile.y <=this.y+1 && currTile.y >=this.y-1 ) {
+              currTile.power = true;
+            }
+          }
+        }
+      }
+      rect((-camx+x*tileSize+tileSize/2)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2)*SCREENMULTIPLIER, (tileSize/8)*SCREENMULTIPLIER, (tileSize/8)*SCREENMULTIPLIER);
     }
-    if (this.type==1 || this.type == 0) {
+
+
+    if (type==1 || type == 0) {
+
       imageMode(CENTER);
       pushMatrix();
       int tempx = 0;
@@ -244,13 +272,13 @@ class Tile {
     }
   }
   void updateActivator() {
-    this.data = 0;
-    for (int j = tiles.size()-1; j >= 0; j--) {
-      Tile detecttile = tiles.get(j);
-      if (detecttile.type ==3) {
-        if (detecttile.x <=this.x+2 && detecttile.x >=this.x-2 ) {
-          if (detecttile.y <=this.y+2 && detecttile.y >=this.y-2 ) {
-            if (detecttile.data == 1) {
+    data = 0;
+    for (int i = tiles.size()-1; i >= 0; i--) {
+      Tile currTile = tiles.get(i);
+      if (currTile.type ==3) {
+        if (currTile.x <=this.x+2 && currTile.x >=this.x-2 ) {
+          if (currTile.y <=this.y+2 && currTile.y >=this.y-2 ) {
+            if (currTile.data == 1) {
               this.data = 1;
             }
           }
@@ -258,21 +286,24 @@ class Tile {
       }
     }
   }
-    void craftCheck() {
-        int[] holding = new int[2];
-        for (int i = items.size()-1; i >= 0; i--) {
-            Item currItem = items.get(i);
-            if (currItem.x==this.x) {
-                if (currItem.y==this.y) {
-                    if (holding[0] == 0){
-                        holding[0] = currItem.type+1;
-                        
-                    } else {
-                    holding[1] = currItem.type+1;
-                    }
-                }
-            }
+  void craftCheck() {
+    int[] holding = new int[2];
+    for (int i = items.size()-1; i >= 0; i--) {
+      Item currItem = items.get(i);
+      if (currItem.x==this.x) {
+        if (currItem.y==this.y) {
+          if (holding[0] == 0) {
+            holding[0] = currItem.type+1;
+          } else {
+            holding[1] = currItem.type+1;
+          }
         }
-        //println(holding);
+      }
+    }
+    if (holding[1] < holding[0]) {
+      int temp = holding[0];
+      holding[0] = holding[1];
+      holding[1] = temp;
     }
   }
+}
