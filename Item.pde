@@ -107,6 +107,7 @@ class Item {
                 this.tileIn.slot = false;
                 if (tileMovingTo.type == 2) {
                     deleteMe = true;
+                    outputIncrease(this.type);
                     tileMovingTo.slot = false;
                 }
                 tileMovingTo = null;

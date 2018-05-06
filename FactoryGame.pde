@@ -134,6 +134,7 @@ void startGame() {
 void draw() {
     if (titleScreen == 0) {
         t++;
+        updateSuccess();
         background(100, 100, 100);
         rectMode(CORNERS);
         fill(20, 20, 20);
@@ -223,8 +224,7 @@ void draw() {
             }
         }
         if (mouseX<width*2/3&&mouseX>width*1/3) {
-            if (mouseY<width*9/10&&mouseY>width*7/10) {
-              setLevel(0);  
+            if (mouseY<width*9/10&&mouseY>width*7/10) {  
               titleScreen = 0;
             }
         }
