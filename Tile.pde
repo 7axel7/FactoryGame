@@ -16,14 +16,6 @@ void create_Tile(float x, float y, int type, int direction, int data) {
         Tile currtile = new Tile(tilex, tiley, type, direction, data);
         tiles.add(currtile);
     }
-<<<<<<< HEAD
-=======
-  }
-  if (fail == false) {
-    Tile currTile = new Tile(tilex, tiley, type, direction, data);
-    tiles.add(currTile);
-  }
->>>>>>> 43064eb925deaf46a5ad73a5b38e8ab1d3f64d85
 }
 
 void create_Tile(float x, float y, int type, int direction) {
@@ -50,7 +42,6 @@ class Tile {
     }
     void display() {
         if (update == true) {
-            println("RUNNING:");
             updateConnections();
         }
         imageMode(CORNER);
@@ -59,7 +50,10 @@ class Tile {
         } else if (type == 1) {
             fill(0, 255, 0);
         }
-        if(connections[0] && connections[1] && connections[0] && connections[0]){}
+        if (connections[0] && connections[1] && connections[0] && connections[0]) {
+        }
+        if (connections[0] && connections[1] && connections[0] && connections[0]) {
+        }
 
         fill(255, 0, 0);
         int tempx = 0;
@@ -77,7 +71,7 @@ class Tile {
             tempx += -16*SCREENMULTIPLIER;
         }
         imageMode(CENTER);
-        image(hPipeBody, (-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER, (-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+        image(arrow, (-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER, (-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
     }
     void output(int type, int data) {
         create_Item(this.x, this.y, type, data);

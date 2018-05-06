@@ -14,10 +14,7 @@ void setup() {
 
     //Define variables that dont reset after each session here
     size(768, 768, P2D);
-<<<<<<< HEAD
-=======
     noSmooth();
->>>>>>> 43064eb925deaf46a5ad73a5b38e8ab1d3f64d85
     imgLoad();
     
     //size(768, 768, P2D);
