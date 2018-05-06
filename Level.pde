@@ -35,7 +35,7 @@ void setLevel (int level) {
       create_Tile(0*tileSize, 0*tileSize, 1, 1, 0, false);
     tutorialText = "Crafter Tiles combine 2 items \n to create one new item.";
     create_Tile(5*tileSize, 5*tileSize, 5, 2, 0, false);
-    create_Tile(5*tileSize, 8*tileSize, 2, 0, 0, false);
+    create_Tile(5*tileSize, 7*tileSize, 2, 0, 0, false);
     success[1] = 5;
     c.inventory[0] = 12;
   } else if (level==4) {
