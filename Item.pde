@@ -133,40 +133,30 @@ class Item {
     }
 
     void display() {
+        PImage temp;
+        temp = loadImage("Horizontal Pipe Body.png");
         imageMode(CENTER);
         rectMode(CENTER);
+
         if (this.type ==0) {
-            image(brackishBrine, (-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+            temp = brackishBrine;
         } else if (this.type == 1) {
-            fill(120, 250, 80);
-            noStroke();
-            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+            temp = drainPlug;
         } else if (this.type == 2) {
-            fill(250, 150, 80);
-            noStroke();
-            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+            temp = eyeEngine;
         } else if (this.type == 3) {
-            fill(250, 80, 150);
-            noStroke();
-            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+            temp = eyeForest;
         } else if (this.type == 4) {
-            fill(250, 120, 120);
-            noStroke();
-            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+            temp = magmaHeart;
         } else if (this.type == 5) {
-            fill(120, 200, 120);
-            noStroke();
-            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+            temp = mithrilPlate;
         } else if (this.type == 6) {
-            fill(120, 0, 120);
-            noStroke();
-            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+            temp = thermalCapacitor;
         } else if (this.type == 7) {
             fill(0, 120, 120);
             noStroke();
             rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
-        }
-         else if (this.type == 8) {
+        } else if (this.type == 8) {
             fill(120, 120, 0);
             noStroke();
             rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
@@ -179,6 +169,7 @@ class Item {
             noStroke();
             rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
         }
-        
+
+        image(temp, (-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
     }
 }
