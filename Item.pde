@@ -44,6 +44,11 @@ class Item {
                     }
                 }
             }
+            if (tileIn!=null) {
+                if (tileIn.type == 5) {
+                    tileIn = null;
+                }
+            }
             if (tileIn != null) {
                 int enterx = x;
                 int entery = y;
@@ -74,8 +79,7 @@ class Item {
                         tileout.slot = true;
                         this.tileIn = tileIn;
                         tileMovingTo = tileout;
-                    }
-                    else if (tileout.type==5) {
+                    } else if (tileout.type==5) {
                         if (tileout.slot2 == false) {
                             tileout.slot2 = true;
                             this.tileIn = tileIn;
@@ -91,7 +95,6 @@ class Item {
                 this.y = tileMovingTo.y;
                 this.tileIn.slot = false;
                 if (currSlot == 2) {
-                    
                 }
                 if (tileMovingTo.type == 2) {
                     deleteMe = true;
@@ -118,15 +121,15 @@ class Item {
             }
         }
     }
-  void display() {
-    imageMode(CENTER);
-    rectMode(CENTER);
-    if (this.type ==0) {
-      image(bBrine, (-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
-    } else if (this.type == 1) {
-      fill(120, 250, 80);
-      noStroke();
-      rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+    void display() {
+        imageMode(CENTER);
+        rectMode(CENTER);
+        if (this.type ==0) {
+            image(bBrine, (-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+        } else if (this.type == 1) {
+            fill(120, 250, 80);
+            noStroke();
+            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+        }
     }
-  }
 }
