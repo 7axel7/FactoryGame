@@ -55,23 +55,31 @@ class Tile {
         if (connections[0] && connections[1] && connections[0] && connections[0]) {
         }
 
-        fill(255, 0, 0);
+        imageMode(CENTER);
+        pushMatrix();
         int tempx = 0;
         int tempy = 0;
         if (direction==0) {
             tempy += -16*SCREENMULTIPLIER;
+            translate((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER,(-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER);
+            rotate(radians(270));
         }
         if (direction==1) {
             tempx += 16*SCREENMULTIPLIER;
+            translate((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER,(-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER);
         }
         if (direction==2) {
             tempy += 16*SCREENMULTIPLIER;
+            translate((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER,(-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER);
+            rotate(radians(90));
         }
         if (direction==3) {
             tempx += -16*SCREENMULTIPLIER;
+            translate((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER,(-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER);
+            rotate(radians(180));
         }
-        imageMode(CENTER);
-        image(arrow, (-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER, (-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
+        image(arrow, 0, 0, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+        popMatrix();
     }
     void output(int type, int data) {
         create_Item(this.x, this.y, type, data);
