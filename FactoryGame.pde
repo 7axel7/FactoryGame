@@ -66,7 +66,7 @@ void draw() {
     }
     for (int i = items.size()-1; i >= 0; i--) {
         Item currItem = items.get(i);
-        currItem.move();
+        currItem.push();
         currItem.display();
     }
 }

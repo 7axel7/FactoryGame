@@ -28,6 +28,9 @@ class Tile {
     int type;
     int direction;
     int data;
+    boolean slot;
+    boolean slot2;
+
 
     Tile(int x, int y, int type, int direction, int data) {
         this.x = x;
