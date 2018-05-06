@@ -3,6 +3,7 @@ float camx = 0;
 float camy = 0;
 float tileSize = 64;
 int selectedTile;
+boolean update = true;
 Controller c;
 
 
@@ -33,26 +34,26 @@ void startGame() {
 void draw() {
     background(100, 100, 100);
     for (int i = tiles.size()-1; i >= 0; i--) {
-        Tile currtile = tiles.get(i);
-        currtile.display();
-        if (currtile.type==1) {
-            if (currtile.slot==false) {
-                currtile.output(0);
-                currtile.slot=true;
+        Tile currTile = tiles.get(i);
+        currTile.display();
+        if (currTile.type==1) {
+            if (currTile.slot==false) {
+                currTile.output(0);
+                currTile.slot=true;
             }
         }
-        if (currtile.type==2 && currtile.slot==true) {
-            currtile.data = 1;
+        if (currTile.type==2 && currTile.slot==true) {
+            currTile.data = 1;
         }
-        if (currtile.type==3) {
-            currtile.data = 0;
+        if (currTile.type==3) {
+            currTile.data = 0;
             for (int j = tiles.size()-1; j >= 0; j--) {
                 Tile detecttile = tiles.get(j);
                 if (detecttile.type ==2) {
-                    if (detecttile.x <=currtile.x+2 && detecttile.x >=currtile.x-2 ) {
-                        if (detecttile.y <=currtile.y+2 && detecttile.y >=currtile.y-2 ) {
+                    if (detecttile.x <=currTile.x+2 && detecttile.x >=currTile.x-2 ) {
+                        if (detecttile.y <=currTile.y+2 && detecttile.y >=currTile.y-2 ) {
                             if (detecttile.data == 1) {
-                                currtile.data = 1;
+                                currTile.data = 1;
                             }
                         }
                     }
@@ -77,12 +78,6 @@ void draw() {
         } else {
             c.inventoryOpen = true;
         }
-
-        for (int i = items.size()-1; i >= 0; i--) {
-            Item currItem = items.get(i);
-            currItem.push();
-            currItem.display();
-        }
     }
     rectMode(CORNERS);
     fill(20, 20, 20);
@@ -95,6 +90,8 @@ void draw() {
         Tile currTile = tiles.get(i);
         currTile.display();
     }
+    update = false;
+    
     for (int i = items.size()-1; i >= 0; i--) {
         Item currItem = items.get(i);
         currItem.push();
