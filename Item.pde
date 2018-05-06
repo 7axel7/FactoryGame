@@ -3,6 +3,7 @@ void create_Item(int x, int y, int type, int data) {
     int itemy = y;
 
     Item currItem = new Item(itemx, itemy, type, data);
+    
     items.add(currItem);
 }
 
@@ -73,6 +74,7 @@ class Item {
     void display() {
         rectMode(CENTER);
         fill(123, 0, 123);
+
         rect((-camx+x*tileSize+tileSize/2)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2)*SCREENMULTIPLIER, (32)*SCREENMULTIPLIER, (32)*SCREENMULTIPLIER);
     }
 }
