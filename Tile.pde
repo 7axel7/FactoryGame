@@ -169,6 +169,25 @@ class Tile {
                     image(wInserter3, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
                 }
             }//direction == 3
+        } else if (type==2) {
+            pushMatrix();
+            if (direction==0) {
+                translate((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER);
+                rotate(radians(270));
+            }
+            if (direction==1) {
+                translate((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER);
+                rotate(radians(180));
+            }
+            if (direction==2) {
+                translate((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER);
+                rotate(radians(90));
+            }
+            if (direction==3) {
+                translate((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER);
+            }
+            image(goal1, 0, 0, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+            popMatrix();
         } else if (type==3) {
             rectMode(CENTER);
             fill(255, 150, 80);
