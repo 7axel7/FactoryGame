@@ -158,6 +158,10 @@ class Tile {
                     image(wInserter2, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
                 }
             }//direction == 3
+        } else if (type==5) {
+            rectMode(CORNER);
+            fill(0, 190, 91);
+            rect((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
         }
         if (this.type==1 || this.type == 0) {
             imageMode(CENTER);
@@ -243,5 +247,22 @@ class Tile {
         if (this.direction == 3) {
             connections[3] = true;
         }
+    }
+    void craftCheck() {
+        int[] holding = new int[2];
+        for (int i = items.size()-1; i >= 0; i--) {
+            Item currItem = items.get(i);
+            if (currItem.x==this.x) {
+                if (currItem.y==this.y) {
+                    if (holding[0] == 0){
+                        holding[0] = currItem.type+1;
+                        
+                    } else {
+                    holding[1] = currItem.type+1;
+                    }
+                }
+            }
+        }
+        println(holding);
     }
 }
