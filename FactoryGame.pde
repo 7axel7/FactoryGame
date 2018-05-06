@@ -211,7 +211,9 @@ void draw() {
             }
         }
     } else {
+    background(255,255,180);
     fill(255, 200, 0);
+    image(bGround,0,0);
     image(logo, 1, 1);
     textSize(64*SCREENMULTIPLIER);
     textAlign(CENTER);
