@@ -39,7 +39,7 @@ void setLevel (int level) {
     create_Tile(5*tileSize, 0*tileSize, 1, 2, 0, false);
     create_Tile(5*tileSize, 5*tileSize, 5, 2, 0, false);
     create_Tile(5*tileSize, 8*tileSize, 2, 0, 0, false);
-    success[0] = 5;
+    success[1] = 5;
     c.inventory[0] = 6;
   } else if (level==4) {
     for (int i = 0; i <= 11; i++) {
