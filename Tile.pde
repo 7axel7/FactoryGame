@@ -163,6 +163,9 @@ class Tile {
       rectMode(CENTER);
       fill(255, 150, 80);
       noStroke();
+      if (slot==true) {
+        data = 1;
+      }
       if (data==1) {
         fill(190, 255, 80);
       }
@@ -171,6 +174,19 @@ class Tile {
       rectMode(CENTER);
       fill(255, 150, 80);
       noStroke();
+      data = 0;
+      for (int i = tiles.size()-1; i >= 0; i--) {
+        Tile currTile = tiles.get(i);
+        if (currTile.type ==3) {
+          if (currTile.x <=this.x+2 && currTile.x >=this.x-2 ) {
+            if (currTile.y <=this.y+2 && currTile.y >=this.y-2 ) {
+              if (currTile.data == 1) {
+                this.data = 1;
+              }
+            }
+          }
+        }
+      }
       if (data==1) {
         for (int i = tiles.size()-1; i >= 0; i--) {
           Tile currTile = tiles.get(i); 
@@ -269,21 +285,6 @@ class Tile {
     }
     if (this.direction == 3) {
       connections[3] = true;
-    }
-  }
-  void updateActivator() {
-    data = 0;
-    for (int i = tiles.size()-1; i >= 0; i--) {
-      Tile currTile = tiles.get(i);
-      if (currTile.type ==3) {
-        if (currTile.x <=this.x+2 && currTile.x >=this.x-2 ) {
-          if (currTile.y <=this.y+2 && currTile.y >=this.y-2 ) {
-            if (currTile.data == 1) {
-              this.data = 1;
-            }
-          }
-        }
-      }
     }
   }
   void craftCheck() {

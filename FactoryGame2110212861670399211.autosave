@@ -6,7 +6,7 @@ int selectedTile;
 boolean update = true;
 Controller c;
 int t = 0;
-int titleScreen = 1;
+int titleScreen = 0;
 
 ArrayList<Tile> tiles;
 ArrayList<Item> items;
@@ -58,17 +58,6 @@ void draw() {
         items.remove(i);
       }
     }
-    if (keys[7]) {
-      int tilex = int(mouseX/tileSize);
-      int tiley = int(mouseY/tileSize);
-      for (int i = tiles.size()-1; i >= 0; i--) {
-        if (tilex==tiles.get(i).x&&tiley==tiles.get(i).y) {
-          c.inventory[tiles.get(i).type] += 1;
-          tiles.remove(i);
-        }
-      }
-    }
-
     if (keys[5]) {
       if (c.inventoryOpen) {
         c.click();
@@ -92,31 +81,30 @@ void draw() {
       if (currTile.type==5) {
         currTile.craftCheck();
       }
+
+      if (currTile.type==3 && currTile.slot==true) {
+        currTile.data = 1;
+      }
+      if (currTile.type==4) {
+        currTile.updateActivator();
+      }
+    }
+    if (c.inventoryOpen) {
+      c.displayInventory();
+    }
+    if (keys[6]) {
+      keys[6] = false;
       if (c.inventoryOpen) {
-        c.displayInventory();
-      }
-      if (keys[6]) {
-        keys[6] = false;
-        if (c.inventoryOpen) {
-          c.inventoryOpen = false;
-        } else {
-          c.inventoryOpen = true;
-        }
+        c.inventoryOpen = false;
+      } else {
+        c.inventoryOpen = true;
       }
     }
-  }else {
-      fill(0, 102, 153);
-      image(logo, 1, 1);
-      textSize(64*SCREENMULTIPLIER);
-      textAlign(CENTER);
-      text("START Game", width/2, height*3/5);
-      if (keys[5]) {
-        if (mouseX<width*2/3&&mouseX>width*1/3) {
-          if (mouseY<width*2/3&&mouseY>width*1/3) {
-            titleScreen = 0;
-          }
-        }
-      }
-    }
-  
+  } else {
+    fill(0, 102, 153);
+    image(logo, 1, 1);
+    textSize(64*SCREENMULTIPLIER);
+    textAlign(CENTER);
+    text("Factory Game", width/2, height*2/5);
+  }
 }
