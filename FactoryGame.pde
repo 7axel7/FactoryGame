@@ -128,6 +128,7 @@ void startGame() {
     SCREENMULTIPLIER = 1/(768/min(float(width), float(height))); //768 by 768 is the default, zoom from theres
     c = new Controller();
     selectedTile = 0;
+    setLevel(1);
 }
 
 void draw() {
@@ -161,7 +162,7 @@ void draw() {
             int tiley = int(mouseY/tileSize);
             for (int i = tiles.size()-1; i >= 0; i--) {
                 if (tilex==tiles.get(i).x&&tiley==tiles.get(i).y) {
-                    c.inventory[tiles.get(i).type] += 1;
+                  c.inventory[tiles.get(i).type] += 1;
                     tiles.get(i).direction = -1;
                     tiles.remove(i);
                     update = true;
@@ -208,7 +209,7 @@ void draw() {
             }
         }
     } else {
-    fill(0, 102, 153);
+    fill(230, 200, 0);
     image(logo, 1, 1);
     textSize(64*SCREENMULTIPLIER);
     textAlign(CENTER);

@@ -1,6 +1,6 @@
 class Controller {
   boolean inventoryOpen = true;
-  int[] inventory = new int[60];
+  int[] inventory = new int[6];
   Controller() {
     this.inventory[0] = 80;
     this.inventory[1] = 20;
@@ -8,9 +8,11 @@ class Controller {
     this.inventory[3] = 13;
     this.inventory[4] = 14;
     this.inventory[5] = 25;
-    this.inventory[8] = 16;
-    this.inventory[13] = 17;
-    this.inventory[26] = 18;
+  }
+  void setInventory(int[] inv){
+    for (int i = 0; i <= min(inventory.length-1,inv.length-1); i++) {
+      this.inventory[i] = inv[i]; 
+    }
   }
 
   void displayInventory() {
