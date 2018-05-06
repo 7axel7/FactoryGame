@@ -13,11 +13,9 @@ int titleScreen = 1;
 ArrayList<Tile> tiles;
 ArrayList<Item> items;
 ArrayList<int[]> recipes;
-PFont courier;
+
 
 void setup() {
-    courier = createFont("Courier New Bold",64);
-    textFont(courier);
     song = new SoundFile(this, "IndustrialSwing.wav");
     song.loop();
     recipes = new ArrayList<int[]>();
