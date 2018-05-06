@@ -121,18 +121,7 @@ class Item {
             }
         }
     }
-<<<<<<< HEAD
-    void display() {
-        imageMode(CENTER);
-        rectMode(CENTER);
-        if (this.type ==0) {
-            image(bBrine, (-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
-        } else if (this.type == 1) {
-            fill(120, 250, 80);
-            noStroke();
-            rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
-        }
-=======
+
   void display() {
     imageMode(CENTER);
     rectMode(CENTER);
@@ -142,6 +131,6 @@ class Item {
       fill(120, 250, 80);
       noStroke();
       rect((-camx+x*tileSize+tileSize/2+animationx)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2+animationy)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER, (tileSize/2)*SCREENMULTIPLIER);
->>>>>>> dc700af824a9bfb1c40871bda6ac774db4537195
     }
+}
 }
