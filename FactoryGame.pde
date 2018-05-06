@@ -135,6 +135,8 @@ void draw() {
     if (titleScreen == 0) {
         t++;
         background(255, 240, 180);
+        image(bGround, 384, (t%768)+384);
+        image(bGround, 384, (t%768)-384);
         rectMode(CORNERS);
         fill(20, 20, 20);
         rect(0, 0, (width/2*(1/SCREENMULTIPLIER)-400)*SCREENMULTIPLIER, (height/2*(1/SCREENMULTIPLIER)+400)*SCREENMULTIPLIER);
