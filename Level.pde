@@ -18,7 +18,7 @@ void setLevel (int level) {
                 create_Tile(i*tileSize, j*tileSize, 0, j%4, 0);
             }
         }
-        tutorialText = "You can use the Right Mouse Button\n to remove tiles and place them in your inventory.";
+        tutorialText = "You can use the Right Mouse Button \n to remove tiles and place them \n in your inventory. \n Press 'R' or use the scroll wheel to rotate your tile.";
         create_Tile(5*tileSize, 0*tileSize, 1, 2, 0);
         create_Tile(5*tileSize, 8*tileSize, 2, 0, 0);
 
