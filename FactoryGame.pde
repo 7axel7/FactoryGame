@@ -240,6 +240,7 @@ void draw() {
                 setLevel(currLevel+1);
             }
         }
+        
 
         fill(255, 200, 0);
         textSize(32*SCREENMULTIPLIER);
