@@ -223,6 +223,7 @@ void draw() {
             text("Click to Continue", width/2, height*3/10);
             if (keys[5]) {
                 keys[5] = false;
+                levelComplete = false;
                 for (int i = tiles.size()-1; i >= 0; i--) {
                     tiles.remove(i);
                 }
@@ -231,7 +232,7 @@ void draw() {
                     currItem.deleteMe = true;
                 }
                 setLevel(currLevel+1);
-                levelComplete = false;
+                
             }
         }
 

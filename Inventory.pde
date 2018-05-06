@@ -9,9 +9,9 @@ class Controller {
     this.inventory[4] = 200;
     this.inventory[5] = 200;
   }
-  void setInventory(int[] inv){
-    for (int i = 0; i <= min(inventory.length-1,inv.length-1); i++) {
-      this.inventory[i] = inv[i]; 
+  void clearInventory(){
+    for (int i = 0; i <=inventory.length-1; i++) {
+      this.inventory[i] = 0; 
     }
   }
 
