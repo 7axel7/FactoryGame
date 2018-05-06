@@ -50,6 +50,10 @@ class Tile {
     //rect((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
     if (type==0) {
       if (connections[0] && connections[1] && connections[2] && connections[3]) {
+        tint(255, 63);
+        image(crossBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+        tint(255, 255);
+        image(crossCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
       } else if (connections[0] && connections[1] == false && connections[2] && connections[3] == false) {
         tint(255, 63);
         image(vPipeBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
@@ -75,6 +79,36 @@ class Tile {
         image(swCurveBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
         tint(255, 255);
         image(swCurveCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+      } else if (connections[0] == false && connections[1]&& connections[2]&&connections[3]) {
+        tint(255, 63);
+        image(xNTBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+        tint(255, 255);
+
+        image(xNTCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+      } else if (connections[0]&& connections[1]&& connections[2] == false &&connections[3]) {
+        tint(255, 63);
+        image(xSTBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+        tint(255, 255);
+
+        image(xSTCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+      } else if (connections[0]&& connections[1]&& connections[2] == false &&connections[3]) {
+        tint(255, 63);
+        image(xSTBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+        tint(255, 255);
+
+        image(xSTCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+      } else if (connections[0]&& connections[1] == false && connections[2]&&connections[3]) {
+        tint(255, 63);
+        image(xETBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+        tint(255, 255);
+
+        image(xETCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+      } else if (connections[0]&& connections[1]&& connections[2]&&connections[3] == false ) {
+        tint(255, 63);
+        image(xWTBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+        tint(255, 255);
+
+        image(xWTCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
       } else if (connections[0]||connections[2]) {
         tint(255, 63);
         image(vPipeBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
@@ -208,6 +242,21 @@ class Tile {
     }
     if (this.direction == 3) {
       connections[3] = true;
+    }
+  }
+  void updateActivator() {
+    this.data = 0;
+    for (int j = tiles.size()-1; j >= 0; j--) {
+      Tile detecttile = tiles.get(j);
+      if (detecttile.type ==3) {
+        if (detecttile.x <=this.x+2 && detecttile.x >=this.x-2 ) {
+          if (detecttile.y <=this.y+2 && detecttile.y >=this.y-2 ) {
+            if (detecttile.data == 1) {
+              this.data = 1;
+            }
+          }
+        }
+      }
     }
   }
 }
