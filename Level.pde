@@ -4,32 +4,38 @@ int[] inv = new int[6];
 int currLevel = 0;
 boolean levelComplete = false;
 String tutorialText = "";
-void setLevel (int level){
-  if (level==1){
-    create_Tile(5*tileSize,6*tileSize,1,1,0);
-    create_Tile(6*tileSize,5*tileSize,2,2,0);
-    inv[0] = 1;
-    c.setInventory(inv);
-    success[0] = 5;
-    tutorialText = "Welcome to Yipes Pipes! \n Press E to exit the inventory. \n Click to place a tile!";
-  } else if (level==2){
-    create_Tile(5*tileSize,6*tileSize,0,1,0);
-    create_Tile(6*tileSize,5*tileSize,3,2,0);
-    inv[0] = 1;
-    c.setInventory(inv);
-    success[0] = 5;
-  }
-  currLevel = level;
-}
-void outputIncrease(int type){
-  outputs[type] ++;
-}
-void updateSuccess(){
-  for (int i = 0; i <= success.length-1; i++) {
-    if (outputs[i] != success[i]){
-    return;
+void setLevel (int level) {
+    if (level==1) {
+        create_Tile(5*tileSize, 6*tileSize, 1, 1, 0);
+        create_Tile(6*tileSize, 5*tileSize, 2, 2, 0);
+        inv[0] = 1;
+        c.setInventory(inv);
+        success[0] = 5;
+        tutorialText = "Welcome to Yipes Pipes! \n Press E to exit the inventory. \n Click to place a tile!";
+    } else if (level==2) {
+        for (int i = 0; i <= 4; i++) {
+            for (int j = 0; j <= 4; j++) {
+                create_Tile(i*tileSize, j*tileSize, 0, j%4, 0);
+            }
+        }
+
+        inv[0] = 0;
+        c.setInventory(inv);
+        success[0] = 5;
     }
-  }
-  println("level complete.");
-  levelComplete = true;
+    currLevel = level;
+}
+void outputIncrease(int type) {
+    outputs[type] ++;
+}
+void updateSuccess() {
+
+    for (int i = 0; i <= success.length-1; i++) {
+        if (outputs[i] != success[i]) {
+            return;
+        }
+    }
+    if (levelComplete == false) {
+        levelComplete = true;
+    }
 }
