@@ -71,12 +71,17 @@ void draw() {
         for (int i = tiles.size()-1; i >= 0; i--) {
             Tile currTile = tiles.get(i);
             currTile.display();
+
             if (currTile.type==1) {
                 if (currTile.slot==false) {
                     currTile.output(1);
                     currTile.slot=true;
                 }
             }
+            if (currTile.type==5) {
+                currTile.craftCheck();
+            }
+
             if (currTile.type==3 && currTile.slot==true) {
                 currTile.data = 1;
             }
