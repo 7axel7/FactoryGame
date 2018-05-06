@@ -24,7 +24,6 @@ void setLevel (int level) {
 
         c.inventory[0] = 0;
         success[0] = 5;
-        
     } else if (level==3) {
         for (int i = 0; i <= 11; i++) {
             create_Tile(0*tileSize, i*tileSize, 1, 1, 0);
@@ -35,8 +34,23 @@ void setLevel (int level) {
         create_Tile(5*tileSize, 8*tileSize, 2, 0, 0);
 
         c.inventory[0] = 10;
-        //success[0] = 5;
+        success[0] = 0;
         success[1] = 5;
+    } else if (level==4) {
+        for (int i = 0; i <= 11; i++) {
+            create_Tile(0*tileSize, i*tileSize, 0, 0);
+        }
+        tutorialText = "Tiles craft moar garbo barbos.";
+        create_Tile(5*tileSize, 0*tileSize, 5, 0, 0);
+        create_Tile(5*tileSize, 1*tileSize, 5, 0, 0);
+        create_Tile(5*tileSize, 8*tileSize, 5, 0, 0);
+
+        c.inventory[0] = 40;
+        c.inventory[2] = 10;
+
+        success[0] = 0;
+        success[1] = 0;
+        success[2] = 5;
     }
     currLevel = level;
 }
@@ -53,7 +67,7 @@ void updateSuccess() {
     if (levelComplete == false) {
         levelComplete = true;
         for (int i = 0; i <= outputs.length-1; i++) {
-        outputs[i] = 0;
-    }
+            outputs[i] = 0;
+        }
     }
 }
