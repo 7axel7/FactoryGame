@@ -31,8 +31,29 @@ void draw() {
     for (int i = tiles.size()-1; i >= 0; i--) {
         Tile currtile = tiles.get(i);
         currtile.display();
-        if(currtile.type==1){
-          currtile.output(0);
+        if (currtile.type==1) {
+            if (currtile.slot==false) {
+                currtile.output(0);
+                currtile.slot=true;
+            }
+        }
+        if (currtile.type==2 && currtile.slot==true) {
+            currtile.data = 1;
+        }
+        if (currtile.type==3) {
+            currtile.data = 0;
+            for (int j = tiles.size()-1; j >= 0; j--) {
+                Tile detecttile = tiles.get(j);
+                if (detecttile.type ==2) {
+                    if (detecttile.x <=currtile.x+2 && detecttile.x >=currtile.x-2 ) {
+                        if (detecttile.y <=currtile.y+2 && detecttile.y >=currtile.y-2 ) {
+                            if (detecttile.data == 1) {
+                                currtile.data = 1;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     if (keys[5]) {
@@ -52,6 +73,12 @@ void draw() {
         } else {
             c.inventoryOpen = true;
         }
+
+        for (int i = items.size()-1; i >= 0; i--) {
+            Item currItem = items.get(i);
+            currItem.push();
+            currItem.display();
+        }
     }
     rectMode(CORNERS);
     fill(20, 20, 20);
@@ -64,12 +91,12 @@ void draw() {
         Tile currTile = tiles.get(i);
         currTile.display();
     }
-    if (c.inventoryOpen) {
-        c.displayInventory();
-    }
     for (int i = items.size()-1; i >= 0; i--) {
         Item currItem = items.get(i);
-        currItem.move();
+        currItem.push();
         currItem.display();
+    }
+    if (c.inventoryOpen) {
+        c.displayInventory();
     }
 }
