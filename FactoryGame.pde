@@ -5,7 +5,7 @@ float tileSize = 64;
 int selectedTile;
 boolean update = true;
 Controller c;
-
+int t = 0;
 
 ArrayList<Tile> tiles;
 ArrayList<Item> items;
@@ -14,7 +14,7 @@ void setup() {
 
     //Define variables that dont reset after each session here
     size(768, 768, P2D);
-    noSmooth();
+    ((PGraphicsOpenGL)g).textureSampling(3);
     imgLoad();
     
     //size(768, 768, P2D);
@@ -32,6 +32,7 @@ void startGame() {
 }
 
 void draw() {
+    t++;
     background(100, 100, 100);
     for (int i = tiles.size()-1; i >= 0; i--) {
         Tile currTile = tiles.get(i);
