@@ -173,18 +173,30 @@ class Tile {
             imageMode(CENTER);
             pushMatrix();
             if (direction==0) {
+                tint(255, 63);
+                image(vPipeBody, (-camx+x*tileSize+tileSize/2)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                tint(255, 255);
                 translate((-camx+x*tileSize+tileSize/2)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2)*SCREENMULTIPLIER);
                 rotate(radians(90));
             }
             if (direction==1) {
+                tint(255, 63);
+                image(hPipeBody, (-camx+x*tileSize+tileSize/2)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                tint(255, 255);
                 translate((-camx+x*tileSize+tileSize/2)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2)*SCREENMULTIPLIER);
                 rotate(radians(180));
             }
             if (direction==2) {
+                tint(255, 63);
+                image(vPipeBody, (-camx+x*tileSize+tileSize/2)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                tint(255, 255);
                 translate((-camx+x*tileSize+tileSize/2)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2)*SCREENMULTIPLIER);
                 rotate(radians(270));
             }
             if (direction==3) {
+                tint(255, 63);
+                image(hPipeBody, (-camx+x*tileSize+tileSize/2)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                tint(255, 255);
                 translate((-camx+x*tileSize+tileSize/2)*SCREENMULTIPLIER, (-camy+y*tileSize+tileSize/2)*SCREENMULTIPLIER);
             }
             image(goal1, 0, 0, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
@@ -228,7 +240,17 @@ class Tile {
                 }
             }
         }
-
+        else if (type == 5){
+          imageMode(CORNER);
+          tint(255, 63);
+          if ((t/8)%4!=0){
+          image(crafterBody1, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+          } else {
+          image(crafterBody2, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+          }
+          tint(255, 255);
+          image(crafterCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+        }
 
         if (type==1 || type == 0) {
 
