@@ -134,7 +134,7 @@ void startGame() {
 void draw() {
     if (titleScreen == 0) {
         t++;
-        background(100, 100, 100);
+        background(255, 240, 180);
         rectMode(CORNERS);
         fill(20, 20, 20);
         rect(0, 0, (width/2*(1/SCREENMULTIPLIER)-400)*SCREENMULTIPLIER, (height/2*(1/SCREENMULTIPLIER)+400)*SCREENMULTIPLIER);
