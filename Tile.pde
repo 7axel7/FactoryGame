@@ -13,6 +13,7 @@ void create_Tile(float x, float y, int type, int direction, int data) {
     }
     if (fail == false) {
         update = true;
+        c.inventory[selectedTile]-=1;
         Tile currtile = new Tile(tilex, tiley, type, direction, data);
         tiles.add(currtile);
     }

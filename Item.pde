@@ -86,16 +86,16 @@ class Item {
                 animationy=0;
             } else {
                 if (tileIn.direction==0) {
-                    animationy-=2;
+                    animationy-=2*tileSize/64;
                 }
                 if (tileIn.direction==1) {
-                    animationx+=2;
+                    animationx+=2*tileSize/64;
                 }
                 if (tileIn.direction==2) {
-                    animationy+=2;
+                    animationy+=2*tileSize/64;
                 }
                 if (tileIn.direction==3) {
-                    animationx-=2;
+                    animationx-=2*tileSize/64;
                 }
                 waitMove -= 1;
             }

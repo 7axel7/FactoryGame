@@ -2,8 +2,8 @@ class Controller {
     boolean inventoryOpen = true;
     int[] inventory = new int[60];
     Controller() {
-        this.inventory[0] = 1;
-        this.inventory[1] = 1;
+        this.inventory[0] = 50;
+        this.inventory[1] = 5;
         this.inventory[2] = 2;
         this.inventory[3] = 3;
         this.inventory[4] = 4;

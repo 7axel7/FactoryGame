@@ -1,7 +1,7 @@
 float SCREENMULTIPLIER; //Used for zoom
 float camx = 0;
 float camy = 0;
-float tileSize = 64;
+float tileSize = 32;
 int selectedTile;
 boolean update = true;
 Controller c;
@@ -16,7 +16,7 @@ void setup() {
     size(768, 768, P2D);
     ((PGraphicsOpenGL)g).textureSampling(3);
     imgLoad();
-    
+
     //size(768, 768, P2D);
     frameRate(60);
     startGame();
@@ -66,7 +66,9 @@ void draw() {
         if (c.inventoryOpen) {
             c.click();
         } else {
-            create_Tile(mouseX/SCREENMULTIPLIER, mouseY/SCREENMULTIPLIER, selectedTile, Scroll);
+            if (c.inventory[selectedTile] > 0) {
+                create_Tile(mouseX/SCREENMULTIPLIER, mouseY/SCREENMULTIPLIER, selectedTile, Scroll);
+            }
         }
     }
     if (c.inventoryOpen) {
@@ -92,7 +94,7 @@ void draw() {
         currTile.display();
     }
     update = false;
-    
+
     for (int i = items.size()-1; i >= 0; i--) {
         Item currItem = items.get(i);
         currItem.push();
