@@ -12,7 +12,8 @@ ArrayList<Item> items;
 void setup() {
 
     //Define variables that dont reset after each session here
-    size(800, 800, P2D);
+    size(768, 768, P2D);
+    noSmooth();
     imgLoad();
     
     //size(768, 768, P2D);
