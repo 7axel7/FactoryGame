@@ -24,12 +24,17 @@ PImage arrow;
 PImage bBrine;
 PImage nInserter1;
 PImage nInserter2;
+PImage nInserter3;
 PImage eInserter1;
 PImage eInserter2;
+PImage eInserter3;
 PImage sInserter1;
 PImage sInserter2;
+PImage sInserter3;
 PImage wInserter1;
 PImage wInserter2;
+PImage wInserter3;
+PImage logo;
 
 
 
@@ -60,10 +65,15 @@ void imgLoad() {
   bBrine = loadImage("Brackish_Brine.png");
   nInserter1 = loadImage("N Item Inserter F1.png");
   nInserter2 = loadImage("N Item Inserter F2.png");
+  nInserter3 = loadImage("N Item Inserter F3.png");
   eInserter1 = loadImage("E Item Inserter F1.png");
   eInserter2 = loadImage("E Item Inserter F2.png");
+  eInserter3 = loadImage("E Item Inserter F3.png");
   sInserter1 = loadImage("S Item Inserter F1.png");
   sInserter2 = loadImage("S Item Inserter F2.png");
+  sInserter3 = loadImage("S Item Inserter F3.png");
   wInserter1 = loadImage("W Item Inserter F1.png");
   wInserter2 = loadImage("W Item Inserter F2.png");
+  wInserter3 = loadImage("W Item Inserter F3.png");
+  logo = loadImage("Logo.png");
 }
