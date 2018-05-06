@@ -16,6 +16,14 @@ void create_Tile(float x, float y, int type, int direction, int data) {
         Tile currtile = new Tile(tilex, tiley, type, direction, data);
         tiles.add(currtile);
     }
+<<<<<<< HEAD
+=======
+  }
+  if (fail == false) {
+    Tile currTile = new Tile(tilex, tiley, type, direction, data);
+    tiles.add(currTile);
+  }
+>>>>>>> 43064eb925deaf46a5ad73a5b38e8ab1d3f64d85
 }
 
 void create_Tile(float x, float y, int type, int direction) {
