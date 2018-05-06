@@ -170,10 +170,11 @@ class Tile {
                 }
             }//direction == 3
         } else if (type==2) {
+            imageMode(CENTER);
             pushMatrix();
             if (direction==0) {
                 translate((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER);
-                rotate(radians(270));
+                rotate(radians(90));
             }
             if (direction==1) {
                 translate((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER);
@@ -181,7 +182,7 @@ class Tile {
             }
             if (direction==2) {
                 translate((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER);
-                rotate(radians(90));
+                rotate(radians(270));
             }
             if (direction==3) {
                 translate((-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER);
