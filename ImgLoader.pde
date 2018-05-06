@@ -21,7 +21,13 @@ PImage xWTCage;
 PImage crossBody;
 PImage crossCage;
 PImage arrow;
-PImage bBrine;
+PImage brackishBrine;
+PImage drainPlug;
+PImage eyeEngine;
+PImage eyeForest;
+PImage magmaHeart;
+PImage mithrilPlate;
+PImage thermalCapacitor;
 PImage nInserter1;
 PImage nInserter2;
 PImage nInserter3;
@@ -62,7 +68,13 @@ void imgLoad() {
   crossBody = loadImage("Cross Pipe Body.png");
   crossCage = loadImage("Cross Pipe Cage.png");
   arrow = loadImage("Arrow.png");
-  bBrine = loadImage("Brackish_Brine.png");
+  brackishBrine = loadImage("Brackish_Brine.png");
+  drainPlug = loadImage("Drain_Plug.png");
+  eyeEngine = loadImage("Eye_Engine.png");
+  eyeForest = loadImage("Eye_Of_The_Forest.png");
+  magmaHeart = loadImage("Magma_Heart.png");
+  mithrilPlate = loadImage("Mithril_Plate.png");
+  thermalCapacitor = loadImage("Thermal_Capacitor.png");
   nInserter1 = loadImage("N Item Inserter F1.png");
   nInserter2 = loadImage("N Item Inserter F2.png");
   nInserter3 = loadImage("N Item Inserter F3.png");
@@ -76,4 +88,5 @@ void imgLoad() {
   wInserter2 = loadImage("W Item Inserter F2.png");
   wInserter3 = loadImage("W Item Inserter F3.png");
   logo = loadImage("Logo.png");
+  background = loadImage("BG.png");
 }
