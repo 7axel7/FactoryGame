@@ -5,7 +5,7 @@ float tileSize = 64;
 int selectedTile;
 boolean update = true;
 Controller c;
-
+int t = 0;
 
 ArrayList<Tile> tiles;
 ArrayList<Item> items;
@@ -32,6 +32,7 @@ void startGame() {
 }
 
 void draw() {
+    t++;
     background(100, 100, 100);
     for (int i = tiles.size()-1; i >= 0; i--) {
         Tile currTile = tiles.get(i);

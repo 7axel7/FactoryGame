@@ -76,6 +76,32 @@ class Tile {
                 image(hPipeBody, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
                 image(hPipeCage, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
             }
+        } else if (type==1) {
+            if (direction == 0) {
+                if (t%2 == 0) {
+                    image(nInserter1, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                } else {
+                    image(nInserter2, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                }
+            } else if (direction == 1) {
+                if (t%2 == 0) {
+                    image(eInserter1, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                } else {
+                    image(eInserter2, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                }
+            } else if (direction == 2) {
+                if (t%2 == 0) {
+                    image(sInserter1, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                } else {
+                    image(sInserter2, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                }
+            } else {
+                if (t%2 == 0) {
+                    image(wInserter1, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                } else {
+                    image(wInserter2, (-camx+x*tileSize)*SCREENMULTIPLIER, (-camy+y*tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
+                }
+            }//direction == 3
         }
 
         imageMode(CENTER);
@@ -84,21 +110,21 @@ class Tile {
         int tempy = 0;
         if (direction==0) {
             tempy += -16*SCREENMULTIPLIER;
-            translate((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER,(-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER);
+            translate((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER, (-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER);
             rotate(radians(270));
         }
         if (direction==1) {
             tempx += 16*SCREENMULTIPLIER;
-            translate((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER,(-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER);
+            translate((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER, (-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER);
         }
         if (direction==2) {
             tempy += 16*SCREENMULTIPLIER;
-            translate((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER,(-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER);
+            translate((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER, (-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER);
             rotate(radians(90));
         }
         if (direction==3) {
             tempx += -16*SCREENMULTIPLIER;
-            translate((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER,(-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER);
+            translate((-camx+x*tileSize+tempx+32)*SCREENMULTIPLIER, (-camy+y*tileSize+tempy+32)*SCREENMULTIPLIER);
             rotate(radians(180));
         }
         image(arrow, 0, 0, (tileSize)*SCREENMULTIPLIER, (tileSize)*SCREENMULTIPLIER);
